@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>引用传递 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="引用传递在写这样一个输入输出数组程序的时候出了bug，程序不停地输出结果。 1234567891011121314151617181920212223242526272829#include&lt;iostream&gt;int a[100];void inputArray(int n);void outputArray(int n);int main()&#123;	int n;	inputAr">
+  <meta name="description" content="在写这样一个输入输出数组程序的时候出了bug，程序不停地输出结果。 1234567891011121314151617181920212223242526272829#include&lt;iostream&gt;int a[100];void inputArray(int n);void outputArray(int n);int main()&#123;	int n;	inputArray(">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="引用传递">
 <meta property="og:url" content="https://realknowtech.github.io/2025/11/24/%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="引用传递在写这样一个输入输出数组程序的时候出了bug，程序不停地输出结果。 1234567891011121314151617181920212223242526272829#include&lt;iostream&gt;int a[100];void inputArray(int n);void outputArray(int n);int main()&#123;	int n;	inputAr">
+<meta property="og:description" content="在写这样一个输入输出数组程序的时候出了bug，程序不停地输出结果。 1234567891011121314151617181920212223242526272829#include&lt;iostream&gt;int a[100];void inputArray(int n);void outputArray(int n);int main()&#123;	int n;	inputArray(">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-11-24T02:03:20.218Z">
-<meta property="article:modified_time" content="2025-11-24T02:03:20.358Z">
+<meta property="article:published_time" content="2025-11-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-11-24T13:31:19.713Z">
 <meta property="article:author" content="Realknow">
 <meta name="twitter:card" content="summary">
   
@@ -76,16 +76,30 @@
         <section id="main"><article id="post-引用传递" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/11/24/%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92/" class="article-date">
-  <time class="dt-published" datetime="2025-11-24T02:03:20.218Z" itemprop="datePublished">2025-11-24</time>
+  <time class="dt-published" datetime="2025-11-23T16:00:00.000Z" itemprop="datePublished">2025-11-24</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-learning/">C learning</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      引用传递
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h3 id="引用传递"><a href="#引用传递" class="headerlink" title="引用传递"></a>引用传递</h3><p>在写这样一个输入输出数组程序的时候出了bug，程序不停地输出结果。</p>
+        <p>在写这样一个输入输出数组程序的时候出了bug，程序不停地输出结果。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a[<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">inputArray</span><span class="params">(<span class="type">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">outputArray</span><span class="params">(<span class="type">int</span> n)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	<span class="built_in">inputArray</span>(n);</span><br><span class="line">	<span class="built_in">outputArray</span>(n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">inputArray</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	std::cin&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		a[i]=<span class="built_in">rand</span>()%<span class="number">100</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">outputArray</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		std::cout&lt;&lt;a[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>询问ds得知是因为main函数int n是没有初值的，而调用<code>void inputArray(int n)</code></p>
@@ -123,7 +137,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://realknowtech.github.io/2025/11/24/%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92/" data-id="cmicku7je00015ovbhbswbdff" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://realknowtech.github.io/2025/11/24/%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92/" data-id="cmicku7je00015ovbhbswbdff" data-title="引用传递" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -153,7 +167,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/me/">me</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/misc/">misc</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C-learning/">C learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/me/">me</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/misc/">misc</a></li></ul>
     </div>
   </div>
 
@@ -181,7 +195,7 @@
       <ul>
         
           <li>
-            <a href="/2025/11/24/%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92/">(no title)</a>
+            <a href="/2025/11/24/%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92/">引用传递</a>
           </li>
         
           <li>
