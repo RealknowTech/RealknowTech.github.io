@@ -4,15 +4,35 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://realknowtech.github.io/index.html">
+  <meta name="description" content="DontDebugMe真·纯萌新教学  下载得到DontDebugMe.exe，一个让你输flag的程序。 这类题目的本质：用户输入 → 加密变换 → 与存储的加密数据比较 → 判断对错 所以我们的逆向过程就是： 存储的加密数据 → 逆向解密 → 得到原始flag 这种方法其实可以想象成你在编写一个「注册机」，或者简单的说，去破解某个付费软件的密钥。而这个密钥其实是已经在程序里写好了，但是是加密之">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe">
+<meta property="og:url" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="DontDebugMe真·纯萌新教学  下载得到DontDebugMe.exe，一个让你输flag的程序。 这类题目的本质：用户输入 → 加密变换 → 与存储的加密数据比较 → 判断对错 所以我们的逆向过程就是： 存储的加密数据 → 逆向解密 → 得到原始flag 这种方法其实可以想象成你在编写一个「注册机」，或者简单的说，去破解某个付费软件的密钥。而这个密钥其实是已经在程序里写好了，但是是加密之">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127114140855.png">
+<meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127114426544.png">
+<meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127115440723.png">
+<meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127115850685.png">
+<meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127120204058.png">
+<meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127120424776.png">
+<meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127120941377.png">
+<meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127191507977.png">
+<meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127191817022.png">
+<meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127192445344.png">
+<meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127192809169.png">
+<meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127194301560.png">
+<meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127195952305.png">
+<meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/%E5%A4%A7%E7%AB%AF%E5%BA%8F%E5%92%8C%E5%B0%8F%E7%AB%AF%E5%BA%8F.png">
+<meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127202609726.png">
+<meta property="article:published_time" content="2025-11-27T03:26:19.000Z">
+<meta property="article:modified_time" content="2025-11-27T12:28:17.225Z">
 <meta property="article:author" content="Realknow">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127114140855.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -69,9 +89,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/" class="article-date">
   <time class="dt-published" datetime="2025-11-27T03:26:19.000Z" itemprop="datePublished">2025-11-27</time>
@@ -88,8 +106,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/">第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe
     </h1>
   
 
@@ -196,216 +214,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-引用传递" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/11/24/%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92/" class="article-date">
-  <time class="dt-published" datetime="2025-11-23T16:00:00.000Z" itemprop="datePublished">2025-11-24</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/C-learning/">C learning</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/11/24/%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92/">引用传递</a>
-    </h1>
+    <a href="/2025/11/24/%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">引用传递</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>在写这样一个输入输出数组程序的时候出了bug，程序不停地输出结果。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a[<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">inputArray</span><span class="params">(<span class="type">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">outputArray</span><span class="params">(<span class="type">int</span> n)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	<span class="built_in">inputArray</span>(n);</span><br><span class="line">	<span class="built_in">outputArray</span>(n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">inputArray</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	std::cin&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		a[i]=<span class="built_in">rand</span>()%<span class="number">100</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">outputArray</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		std::cout&lt;&lt;a[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>询问ds得知是因为main函数int n是没有初值的，而调用<code>void inputArray(int n)</code></p>
-<p>函数并不会更改n的值，仅仅是值传递，所以n就是一个垃圾值。</p>
-<p>所以要解决这个问题，我们应该使用<strong>引用传递</strong>。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a[<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">inputArray</span><span class="params">(<span class="type">int</span> &amp;n)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">outputArray</span><span class="params">(<span class="type">int</span> n)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> x; <span class="comment">//实参，可以不为n</span></span><br><span class="line">	<span class="built_in">inputArray</span>(x);</span><br><span class="line">	<span class="built_in">outputArray</span>(x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">inputArray</span><span class="params">(<span class="type">int</span> &amp;n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	std::cin&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		a[i]=<span class="built_in">rand</span>()%<span class="number">100</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">outputArray</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		std::cout&lt;&lt;a[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h5 id="值传递（按值传递）"><a href="#值传递（按值传递）" class="headerlink" title="值传递（按值传递）"></a>值传递（按值传递）</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;  <span class="comment">// x是原始变量的副本</span></span><br><span class="line">    x = <span class="number">100</span>;  <span class="comment">// 修改的是副本，不影响原始变量</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">5</span>;</span><br><span class="line">    <span class="built_in">func</span>(a);     <span class="comment">// a的值仍然是5</span></span><br><span class="line">    cout &lt;&lt; a;   <span class="comment">// 输出：5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="引用传递（按引用传递）"><a href="#引用传递（按引用传递）" class="headerlink" title="引用传递（按引用传递）"></a>引用传递（按引用传递）</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">(<span class="type">int</span> &amp;x)</span> </span>&#123;  <span class="comment">// x是原始变量的别名（引用）</span></span><br><span class="line">    x = <span class="number">100</span>;         <span class="comment">// 直接修改原始变量</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">5</span>;</span><br><span class="line">    <span class="built_in">func</span>(a);     <span class="comment">// a的值被修改为100</span></span><br><span class="line">    cout &lt;&lt; a;   <span class="comment">// 输出：100</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th align="left">函数</th>
-<th align="left">参数用途</th>
-<th align="left">传递方式</th>
-<th align="left">原因</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>inputArray</code></td>
-<td align="left">修改n的值</td>
-<td align="left">引用传递</td>
-<td align="left">需要修改main函数中的n</td>
-</tr>
-<tr>
-<td align="left"><code>outputArray</code></td>
-<td align="left">读取n的值</td>
-<td align="left">值传递</td>
-<td align="left">只读取不修改，n是基本类型</td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://realknowtech.github.io/2025/11/24/%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92/" data-id="cmid6usq90003hcvbf6sj4rrl" data-title="引用传递" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
-    <article id="post-第八届浙江省大学生网络与信息安全竞赛-初赛-红头文件之谜" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/11/19/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-%E7%BA%A2%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B9%8B%E8%B0%9C/" class="article-date">
-  <time class="dt-published" datetime="2025-11-18T16:00:00.000Z" itemprop="datePublished">2025-11-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/misc/">misc</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/11/19/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-%E7%BA%A2%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B9%8B%E8%B0%9C/">第八届浙江省大学生网络与信息安全竞赛 初赛 红头文件之谜</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="红头文件之谜"><a href="#红头文件之谜" class="headerlink" title="红头文件之谜"></a><strong>红头文件之谜</strong></h3><p>一份即将发布的战略规划（红头文件）疑似被境外APT组织窃取，调查人员在对方的服务器上找到了一个被破坏的WPS文档碎片以及零散的系统日志和流量，你能发现其中隐藏的flag吗？</p>
-<hr>
-<p>下载得到一个QAQ.wps，一个system_log.hex和一个1.zip。</p>
-<img src="/2025/11/19/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-%E7%BA%A2%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B9%8B%E8%B0%9C/image-20251119184529554.png" class="" title="image-20251119184529554">
-
-<p>其中1.zip是加密的。看到wps，我蠢蠢地就去虚拟机上下载了wps，以为能够用wps打开。正所谓一步错，步步错，在第一步上翻车，我也只好去看wp了。</p>
-<p>好吧，原来是把这个.wps文件转换为压缩包。众所周知，docx文件的本质就是压缩包，那么，.wps文件应该也是吧。使用010Editor打开，发现是一个缺少了文件头的zip：</p>
-<img src="/2025/11/19/第八届浙江省大学生网络与信息安全竞赛-初赛-红头文件之谜/image-20251119185041916.png"  alt="image-20251119185041916" style="zoom:33%;" />
-
-<p>那还说啥了，直接补上50 4B 03 04就得了。不过我对于在010Editor中插入字节有点疑问。为啥只能一个字节一个字节的插入？是我打开方式不对吗？</p>
-<img src="/2025/11/19/第八届浙江省大学生网络与信息安全竞赛-初赛-红头文件之谜/image-20251119185636940.png"  alt="image-20251119185636940" style="zoom:25%;" />
-
-<p>插入，并重命名为.zip。</p>
-<img src="/2025/11/19/第八届浙江省大学生网络与信息安全竞赛-初赛-红头文件之谜/image-20251119185931130.png"  alt="image-20251119185931130" style="zoom: 33%;" />
-
-<p>打开可以发现里面有一个app.xml，用记事本打开。</p>
-<img src="/2025/11/19/第八届浙江省大学生网络与信息安全竞赛-初赛-红头文件之谜/image-20251119190137717.png"  alt="image-20251119190137717" style="zoom:25%;" />
-
-<p>在这里又猪脑过载了。看到XOR_key，但是不知道是啥跟啥XOR？？我还以为是Adm1n和2025异或💦</p>
-<p>是原文和XOR_key异或，得到system_log.hex啦！根据<strong>异或的可逆性</strong>，只要再把system_log.hex和XOR_key异或就能得到原文了。</p>
-<p>这里使用cyberchef内置的XOR就可以了。首先拉一个from HEX的recipe，把hex转化为binary，这样才能异或嘛！<em>但是为啥cyberchef显示的是utf-8字符？因为utf-8才可能是“人类的语言”啊，相当于cyberchef自动把转化得到的binary再次转为utf-8显示了。</em></p>
-<p>然后再拉一个XOR的recipe。</p>
-<img src="/2025/11/19/第八届浙江省大学生网络与信息安全竞赛-初赛-红头文件之谜/image-20251119190952985.png"  alt="image-20251119190952985" style="zoom: 25%;" />
-
-<p>这样我们就解密得到了看得懂的system log。从中可以看到一串base64的zip密码，对这个密码使用from base64 recipe即可。</p>
-<img src="/2025/11/19/第八届浙江省大学生网络与信息安全竞赛-初赛-红头文件之谜/image-20251119191149152.png"  alt="image-20251119191149152" style="zoom:25%;" />
-
-<p>得到zip密码：<code>eXywHM0F4YypMhl0</code>。打开1.zip，可以获得一个流量包。乍一看好像里面的流量都差不多。看看详细信息，发现似乎有许多“噪音”–“noise”。于是我就一个一个详细信息地看过去，直到看到了这一条……</p>
-<p>停停停，这样有点麻烦了。可以点击info进行排序，你就会发现突破口就是唯一的那个POST流量。</p>
-<img src="/2025/11/19/第八届浙江省大学生网络与信息安全竞赛-初赛-红头文件之谜/image-20251119192003045.png"  alt="image-20251119192003045" style="zoom:25%;" />
-
-<p>挖藕我看到了什么？是SM4加密哦。既然有了key和iv（初始化向量。但大概不是这里的3，我也不清楚，不需要这个似乎也能解密），那再把这个任务交给cyberchef就行了。</p>
-<p>复制这些内容也是一个小问题。怎么做呢？右键选中左下框里你想复制的内容，选择显示分组字节，然后在弹出的窗口中记得选择显示为UTF-8，这样就方便复制了😋</p>
-<img src="/2025/11/19/第八届浙江省大学生网络与信息安全竞赛-初赛-红头文件之谜/image-20251119192450049.png"  alt="image-20251119192450049" style="zoom:25%;" />
-
-<p>然后就是cyberchef的工作了。但是需要注意，我们的密文X-Blob好像有点特殊？有“&#x2F;””+”，这不是base64编码吗？所以在使用SM4 Decrypted之前，不要忘了先使用from base64哦！</p>
-<img src="/2025/11/19/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-%E7%BA%A2%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B9%8B%E8%B0%9C/image-20251119192812068.png" class="" title="image-20251119192812068">
-
-<p>这样，flag就出来啦！</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://realknowtech.github.io/2025/11/19/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-%E7%BA%A2%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B9%8B%E8%B0%9C/" data-id="cmid6usqe0009hcvbhriv0qtx" data-title="第八届浙江省大学生网络与信息安全竞赛 初赛 红头文件之谜" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-firstblog" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/11/18/firstblog/" class="article-date">
-  <time class="dt-published" datetime="2025-11-17T16:00:00.000Z" itemprop="datePublished">2025-11-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/me/">me</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/11/18/firstblog/">firstblog</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>也是有自己的blog了，在有些艰难的努力下😭。而且还是有些地方没完善好，比如在这个md里面输入第一个汉字的时候有点bug。。</p>
-<p>希望能在这里分享一些学习生活的心得，我看我的学长在这个时候已经发布不少CTF题目的wp了，我得努力了💪</p>
-<p>笔者的联系方式：</p>
-<p>qq：2660933875</p>
-<p>b站：@我就知道鸭&#x2F;我就知道鹅</p>
-<p>红薯：@我就知道鸭</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://realknowtech.github.io/2025/11/18/firstblog/" data-id="cmid6usq70001hcvb7bdda4gj" data-title="firstblog" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 </section>
