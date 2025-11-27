@@ -24,6 +24,7 @@
 <meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127191817022.png">
 <meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127192445344.png">
 <meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127192809169.png">
+<meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127193949648.png">
 <meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127194301560.png">
 <meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127195952305.png">
 <meta property="og:image" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/%E5%A4%A7%E7%AB%AF%E5%BA%8F%E5%92%8C%E5%B0%8F%E7%AB%AF%E5%BA%8F.png">
@@ -166,7 +167,7 @@
 
 <p>这样，我们就已经绕过了反汇编这一道门槛！</p>
 <p>然后别急着退出调试，我们的任务是读出sub_401000()的值。从汇编代码中，我们可以看到，sub_401000的值被存储到了eax当中。所以，我们应该在mov eax后面打上断点，然后点击继续运行。(实际上，这里打在mov eax前面也是可以的，ds说是eax已经有了正确的返回值🤔)于是，sub_401000()的值就被我们读出来了。</p>
-
+<img src="/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127193949648.png" class="" title="image-20251127193949648">
 
 <hr>
 <p>万事俱备，接下来就应该回到伪代码，进行解密脚本的编写了。</p>
@@ -207,7 +208,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/" data-id="cmihevr2p0000govbf33n8y7k" data-title="第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/" data-id="cmihewuqn0003ycvb4jchc0hw" data-title="第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
