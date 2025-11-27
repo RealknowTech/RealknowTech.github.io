@@ -76,13 +76,6 @@
 
   
   <url>
-    <loc>https://realknowtech.github.io/categories/C-learning/</loc>
-    <lastmod>2025-11-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://realknowtech.github.io/categories/me/</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -91,6 +84,13 @@
   
   <url>
     <loc>https://realknowtech.github.io/categories/reverse/</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://realknowtech.github.io/categories/C-learning/</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
