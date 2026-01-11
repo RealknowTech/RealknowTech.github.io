@@ -71,6 +71,69 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-BUUCTF-Reverse-reverse1-Writeup" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/" class="article-date">
+  <time class="dt-published" datetime="2026-01-11T14:32:05.000Z" itemprop="datePublished">2026-01-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/reverse/">reverse</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/">BUUCTF Reverse reverse1 Writeup</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="BUUCTF-Reverse-reverse1-Writeup"><a href="#BUUCTF-Reverse-reverse1-Writeup" class="headerlink" title="BUUCTF Reverse reverse1 Writeup"></a>BUUCTF Reverse reverse1 Writeup</h3><p>此Writeup参考了<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2240112">BUUCTF 刷题笔记——Reverse 1-腾讯云开发者社区-腾讯云</a></p>
+<hr>
+<p>使用IDA打开之后可以先查找主函数or使用<code>Shift+F12</code>查找字符串。（我做的时候是使用后者，但现在看前者更直接。）</p>
+<img src="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111224206270.png" class="" title="image-20260111224206270">
+
+<p>点击带有flag的字符串，但是发现跳转的这里似乎并不是函数的主体。</p>
+<img src="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111224425471.png" class="" title="image-20260111224425471">
+
+<p>没事，可以对这个变量按住X来交叉引用。</p>
+<img src="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111224705306.png" class="" title="image-20260111224705306">
+
+<p>转到交叉引用的地方就对了。然后就按F5生成主函数的伪代码。</p>
+<img src="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111224936756.png"  alt="image-20260111224936756" style="zoom: 50%;" />
+
+<p>通过伪代码，我们可以猜测，输入的被存储到了Str1中，而正确的是Str1。这里的<code>!strncmp(Str1,Str2,v5)</code>意思是只有当Str1从头到尾（–范围为Strlen(Str2)，即“v5”）都与Str2相等的时候，才返回0（那么非0即为1），也就是<code>Str1==Str2</code>的意思啦！</p>
+<p>所以现在我们只要知道Str2究竟是啥就行了。双击Str2，可以看到Str2的初值是<code>hello_world</code>。db是<code>define byte</code>的意思，此处为字符串定义。</p>
+<p><img src="/../../../../AppData/Roaming/Typora/typora-user-images/image-20260111225836032.png" alt="image-20260111225836032"></p>
+<p>然而，我们还需要看看Str2是否有被更改过。很明显，我们能在伪代码中找到线索。</p>
+<img src="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/.."  alt="image-20260111225701404" style="zoom: 67%;" />
+
+<p>这里是一个对Str2的遍历。如果Str2中有含ASCII码为111的字符（即为’o’），则将其替换为48对应的字符（即为’0’）。所以，Str2就变成了<code>hell0_w0rld</code>，这也就是flag了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://realknowtech.github.io/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/" data-id="cmk9v6ro20007zgvbey1lc641" data-title="BUUCTF Reverse reverse1 Writeup" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-IDA快捷键使用（自用版）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/01/11/IDA%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%EF%BC%88%E8%87%AA%E7%94%A8%E7%89%88%EF%BC%89/" class="article-date">
@@ -109,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://realknowtech.github.io/2026/01/11/IDA%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%EF%BC%88%E8%87%AA%E7%94%A8%E7%89%88%EF%BC%89/" data-id="cmk9sph5e0001hkvb2ccgcv9n" data-title="IDA快捷键使用（自用版）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://realknowtech.github.io/2026/01/11/IDA%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%EF%BC%88%E8%87%AA%E7%94%A8%E7%89%88%EF%BC%89/" data-id="cmk9v6rnz0002zgvbgrvxfifk" data-title="IDA快捷键使用（自用版）" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -239,7 +302,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/" data-id="cmk9sph5h0005hkvbfz521brx" data-title="第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/" data-id="cmk9v6ro20008zgvb51tyeq8k" data-title="第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -320,7 +383,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://realknowtech.github.io/2025/11/19/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-%E7%BA%A2%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B9%8B%E8%B0%9C/" data-id="cmk9sph5j000bhkvbhbri5e1k" data-title="第八届浙江省大学生网络与信息安全竞赛 初赛 红头文件之谜" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://realknowtech.github.io/2025/11/19/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-%E7%BA%A2%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B9%8B%E8%B0%9C/" data-id="cmk9v6ro00004zgvbb20j64ow" data-title="第八届浙江省大学生网络与信息安全竞赛 初赛 红头文件之谜" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -368,7 +431,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://realknowtech.github.io/2025/11/18/firstblog/" data-id="cmk9sph5g0003hkvb1y3t0ypu" data-title="firstblog" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://realknowtech.github.io/2025/11/18/firstblog/" data-id="cmk9v6ro10006zgvb1hpnh3eg" data-title="firstblog" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -416,6 +479,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/">BUUCTF Reverse reverse1 Writeup</a>
+          </li>
         
           <li>
             <a href="/2026/01/11/IDA%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%EF%BC%88%E8%87%AA%E7%94%A8%E7%89%88%EF%BC%89/">IDA快捷键使用（自用版）</a>
