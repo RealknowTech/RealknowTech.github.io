@@ -17,10 +17,10 @@
 <meta property="og:image" content="https://realknowtech.github.io/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111224425471.png">
 <meta property="og:image" content="https://realknowtech.github.io/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111224705306.png">
 <meta property="og:image" content="https://realknowtech.github.io/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111224936756.png">
-<meta property="og:image" content="https://realknowtech.github.io/AppData/Roaming/Typora/typora-user-images/image-20260111225836032.png">
-<meta property="og:image" content="https://realknowtech.github.io/2026/01/11/">
+<meta property="og:image" content="https://realknowtech.github.io/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111225836032.png">
+<meta property="og:image" content="https://realknowtech.github.io/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111225701404.png">
 <meta property="article:published_time" content="2026-01-11T14:32:05.000Z">
-<meta property="article:modified_time" content="2026-01-11T15:03:20.437Z">
+<meta property="article:modified_time" content="2026-01-11T15:05:29.117Z">
 <meta property="article:author" content="Realknow">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://realknowtech.github.io/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111224206270.png">
@@ -122,16 +122,17 @@
 
 <p>通过伪代码，我们可以猜测，输入的被存储到了Str1中，而正确的是Str1。这里的<code>!strncmp(Str1,Str2,v5)</code>意思是只有当Str1从头到尾（–范围为Strlen(Str2)，即“v5”）都与Str2相等的时候，才返回0（那么非0即为1），也就是<code>Str1==Str2</code>的意思啦！</p>
 <p>所以现在我们只要知道Str2究竟是啥就行了。双击Str2，可以看到Str2的初值是<code>hello_world</code>。db是<code>define byte</code>的意思，此处为字符串定义。</p>
-<p><img src="/../../../../AppData/Roaming/Typora/typora-user-images/image-20260111225836032.png" alt="image-20260111225836032"></p>
+<img src="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111225836032.png" class="" title="image-20260111225836032">
+
 <p>然而，我们还需要看看Str2是否有被更改过。很明显，我们能在伪代码中找到线索。</p>
-<img src="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/.."  alt="image-20260111225701404" style="zoom: 67%;" />
+<img src="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111225701404.png"  alt="image-20260111225701404" style="zoom: 67%;" />
 
 <p>这里是一个对Str2的遍历。如果Str2中有含ASCII码为111的字符（即为’o’），则将其替换为48对应的字符（即为’0’）。所以，Str2就变成了<code>hell0_w0rld</code>，这也就是flag了。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://realknowtech.github.io/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/" data-id="cmk9v6ro20007zgvbey1lc641" data-title="BUUCTF Reverse reverse1 Writeup" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://realknowtech.github.io/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/" data-id="cmk9v9kqg0006rwvb5vd729z0" data-title="BUUCTF Reverse reverse1 Writeup" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
