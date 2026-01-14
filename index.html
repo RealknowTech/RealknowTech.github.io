@@ -71,6 +71,95 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/01/14/%EF%BC%9FCTF-Forensics-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2win7%E5%90%97-Writeup-volatility3-version/" class="article-date">
+  <time class="dt-published" datetime="2026-01-14T08:06:50.000Z" itemprop="datePublished">2026-01-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Forensics/">Forensics</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/01/14/%EF%BC%9FCTF-Forensics-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2win7%E5%90%97-Writeup-volatility3-version/">？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version"><a href="#？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version" class="headerlink" title="？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)"></a>？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)</h3><p>好久没做题了。现在放寒假了，开始了解Forensics方向的知识。感觉还挺有趣的🙂</p>
+<p>与官方writeup不同，本文全部基于volatility3，而不是2，因为我的windows上的默认python版本是python3，所以就使用volatility3了。但是网上的大部分内容都是基于volatility2的，而2和3的命令有较大差异，所以需要费一点时间学习。不过既然是较新的版本，学一学肯定是更有好处的。</p>
+<p>在这里先贴出几个比较全的volatility3命令总结帖：</p>
+<p><a target="_blank" rel="noopener" href="https://tgvhzg.github.io/2025/12/20/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81-volatility3%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">内存取证-volatility3工具的使用 | JiuCheng’s BLOG</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_68012373/article/details/127419463">内存取证-volatility工具的使用 （史上更全教程，更全命令）_volatility内存取证-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/2303_81631620/article/details/146380535">内存取证之windows-Volatility 3_volatility3-CSDN博客</a></p>
+<hr>
+<p>拿到memory.raw，题目告诉我们这是一个内存镜像，所以我们就使用volatility。</p>
+<p>虽说题目告诉我们了系统版本，但是我们也可以使用volatility看看。</p>
+<p><code>python vol.py -f &quot;C:\Users\Xu Zhiheng\Desktop\memory.raw&quot; windows.info</code></p>
+<img src="/2026/01/14/%EF%BC%9FCTF-Forensics-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2win7%E5%90%97-Writeup-volatility3-version/image-20260114162037002.png" class="" title="image-20260114162037002">
+
+<p>我们可以看到，系统是Win7SP1x64版本的。当然在volatility3中输入命令无需加入系统名称的参数，这是比较便捷的一点。</p>
+<p>然后我们就可以先进行文件扫描，输入命令<code>python vol.py -f &quot;C:\Users\Xu Zhiheng\Desktop\memory.raw&quot; windows.filescan</code>。</p>
+<p>输出了很多文件。官方Writeup建议使用flag或hint来进行筛选，在powershell中这个功能可以使用<code>Select-String</code>来完成：<code>python vol.py -f &quot;C:\Users\Xu Zhiheng\Desktop\memory.raw&quot; windows.filescan | Select-String &quot;flag&quot;</code>。但是，运行的时候却报错了。经过查找，原因是在文件中有一处乱码的存在：</p>
+<img src="/2026/01/14/？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version/屏幕截图 2026-01-13 210729.png"  alt="屏幕截图 2026-01-13 210729" style="zoom: 50%;" />
+
+<p>不过没关系，我们直接把全部的内容复制到Notepad++里查找就行了。我们可以找到一个flag.zip和一个hint.txt。</p>
+<img src="/2026/01/14/？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version/image-20260114165025021.png"  alt="image-20260114165025021" style="zoom: 50%;" />
+
+<img src="/2026/01/14/？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version/image-20260114165116195.png"  alt="image-20260114165116195" style="zoom:50%;" />
+
+<p>把这两个文件dump(转储)下来。使用<code>windows.dumpfiles --physaddr [要提取文件对应的地址] </code>的形式进行转储。注意这里是从物理内存中转储，所以使用<code>physaddr</code>；当然如果从虚拟内存中转储，就要改成<code>--virtaddr</code>参数。（其实我不是很清楚具体的差别💦）</p>
+<p>比如使用<code>python vol.py -f &quot;C:\Users\Xu Zhiheng\Desktop\memory.raw&quot; windows.dumpfiles --physaddr 0x29457910</code>来提取hint.txt。</p>
+<img src="/2026/01/14/%EF%BC%9FCTF-Forensics-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2win7%E5%90%97-Writeup-volatility3-version/image-20260114170603606.png" class="" title="image-20260114170603606">
+
+<p>我们可以在volatility的目录下找到转储的文件并打开：</p>
+<img src="/2026/01/14/%EF%BC%9FCTF-Forensics-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2win7%E5%90%97-Writeup-volatility3-version/image-20260114170727742.png" class="" title="image-20260114170727742">
+
+<p>flag.zip同理（如果打不开可以用010Editor处理一下）。</p>
+<img src="/2026/01/14/？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version/image-20260114170950241.png"  alt="image-20260114170950241" style="zoom: 50%;" />
+
+<p>当然flag.zip是加密的。根据hint.txt的提示，我们应该在画图上寻找线索。</p>
+<p>查阅资料可以得知，我们应该使用Gimp这个软件。<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/536408671">宸极实验室——『CTF』利用 Volatility 对 Windows 画图取证 - 知乎</a></p>
+<p>但是新版本的Gimp在这道题的使用过程中会出现问题。所以必须下载一个2.xx的老版本。<a target="_blank" rel="noopener" href="https://pan.quark.cn/s/5de67e6f6176?spm=a2c6h.12873639.article-detail.4.2b725ed4KsnkOO#/list/share/09bdb83294d0437e886cf8e8cc074777">夸克网盘分享</a>（不得不说夸克网盘真垃圾啊，必须要下载应用才能下载文件，这破玩意还想篡改我的默认浏览器）</p>
+<p>在使用Gimp之前首先要把画图（mspaint.exe）的内存数据转储下来。注意这里和前面不一样，不是转储进程！（在这里卡了好久，可以参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/697332604">【Volatility3】护网杯_Easy_dump - 知乎</a>）</p>
+<p>我们应该使用memdump进行内存数据转储：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhwer/p/15151659.html">volatility3 正式版本转储内存进程的方法 - 暖暖草果 - 博客园</a>，语法是<code>windows.memmap.Memmap --pid [要提取进程对应的pid]</code>。</p>
+<p>使用pslist或者pstree进行进程分析。</p>
+<img src="/2026/01/14/？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version/image-20260114172935903.png"  alt="image-20260114172935903" style="zoom:50%;" />
+
+<p>转储内存数据，命令为<code>python vol.py -f &quot;C:\Users\Xu Zhiheng\Desktop\memory.raw&quot; windows.memmap.Memmap --pid 2624 --dump</code>，然后我们可以在目录下找到转储的文件，将其后缀名改为<code>.data</code>后使用Gimp打开。</p>
+<img src="/2026/01/14/？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version/image-20260114173611489.png"  alt="image-20260114173611489" style="zoom: 50%;" />
+
+<p>将宽高改为题目中提供的数据：2560*1600。然后拖动“位移”条，直到显示清晰为止。</p>
+<img src="/2026/01/14/？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version/image-20260114173916347.png"  alt="image-20260114173916347" style="zoom: 33%;" />
+
+<p>根据密码打开加密的压缩包，flag就在里面了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://realknowtech.github.io/2026/01/14/%EF%BC%9FCTF-Forensics-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2win7%E5%90%97-Writeup-volatility3-version/" data-id="cmkdu57pk000go8vbbn7tb8w0" data-title="？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-BUUCTF-Reverse-reverse1-Writeup" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/" class="article-date">
@@ -123,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://realknowtech.github.io/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/" data-id="cmk9v9kqg0006rwvb5vd729z0" data-title="BUUCTF Reverse reverse1 Writeup" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://realknowtech.github.io/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/" data-id="cmkdu57pe0001o8vbbibb1ipe" data-title="BUUCTF Reverse reverse1 Writeup" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -173,7 +262,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://realknowtech.github.io/2026/01/11/IDA%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%EF%BC%88%E8%87%AA%E7%94%A8%E7%89%88%EF%BC%89/" data-id="cmk9v9kqd0001rwvb255w39ho" data-title="IDA快捷键使用（自用版）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://realknowtech.github.io/2026/01/11/IDA%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%EF%BC%88%E8%87%AA%E7%94%A8%E7%89%88%EF%BC%89/" data-id="cmkdu57pf0003o8vb2psrcas0" data-title="IDA快捷键使用（自用版）" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -303,7 +392,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/" data-id="cmk9v9kqj000frwvb285v1yp3" data-title="第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/" data-id="cmkdu57pj000fo8vb06f3dwy2" data-title="第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -384,7 +473,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://realknowtech.github.io/2025/11/19/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-%E7%BA%A2%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B9%8B%E8%B0%9C/" data-id="cmk9v9kqf0003rwvbctsd9n3a" data-title="第八届浙江省大学生网络与信息安全竞赛 初赛 红头文件之谜" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://realknowtech.github.io/2025/11/19/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-%E7%BA%A2%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B9%8B%E8%B0%9C/" data-id="cmkdu57ph0007o8vb3xn1cndi" data-title="第八届浙江省大学生网络与信息安全竞赛 初赛 红头文件之谜" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -432,7 +521,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://realknowtech.github.io/2025/11/18/firstblog/" data-id="cmk9v9kqh0007rwvbdrmtg9wf" data-title="firstblog" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://realknowtech.github.io/2025/11/18/firstblog/" data-id="cmkdu57ph0006o8vbfkuac62d" data-title="firstblog" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -454,7 +543,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/me/">me</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/misc/">misc</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/reverse/">reverse</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Forensics/">Forensics</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/me/">me</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/misc/">misc</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/reverse/">reverse</a></li></ul>
     </div>
   </div>
 
@@ -482,6 +571,10 @@
       <ul>
         
           <li>
+            <a href="/2026/01/14/%EF%BC%9FCTF-Forensics-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2win7%E5%90%97-Writeup-volatility3-version/">？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)</a>
+          </li>
+        
+          <li>
             <a href="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/">BUUCTF Reverse reverse1 Writeup</a>
           </li>
         
@@ -495,10 +588,6 @@
         
           <li>
             <a href="/2025/11/19/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-%E7%BA%A2%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B9%8B%E8%B0%9C/">第八届浙江省大学生网络与信息安全竞赛 初赛 红头文件之谜</a>
-          </li>
-        
-          <li>
-            <a href="/2025/11/18/firstblog/">firstblog</a>
           </li>
         
       </ul>
