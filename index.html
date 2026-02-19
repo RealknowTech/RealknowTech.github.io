@@ -1,642 +1,1065 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Realknow">
+    
+    <!-- Completely eliminate flash of wrong theme -->
+    <script>
+        (function() {
+            const THEME_KEY = "REDEFINE-THEME-STATUS";
+            const DARK = "dark", LIGHT = "light";
+            
+            // Get preferred theme
+            function getTheme() {
+                try {
+                    const saved = localStorage.getItem(THEME_KEY);
+                    if (saved) {
+                        const { isDark } = JSON.parse(saved);
+                        return isDark ? DARK : LIGHT;
+                    }
+                } catch (e) {}
+                
+                return matchMedia("(prefers-color-scheme: dark)").matches ? DARK : LIGHT;
+            }
+            
+            // Apply theme to document
+            function applyTheme(theme) {
+                const isDark = theme === DARK;
+                const root = document.documentElement;
+                
+                // Set data attribute for CSS variables
+                root.setAttribute("data-theme", theme);
+                
+                // Set classes for compatibility
+                root.classList.add(theme);
+                root.classList.remove(isDark ? LIGHT : DARK);
+                root.style.colorScheme = theme;
+            }
+            
+            // Initial application
+            const theme = getTheme();
+            applyTheme(theme);
+            
+            // Listen for system preference changes
+            matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
+                // Only update if using system preference (no localStorage entry)
+                if (!localStorage.getItem(THEME_KEY)) {
+                    applyTheme(matches ? DARK : LIGHT);
+                }
+            });
+            
+            // Set body classes once DOM is ready
+            if (document.readyState !== "loading") {
+                document.body.classList.add(theme + "-mode");
+            } else {
+                document.addEventListener("DOMContentLoaded", () => {
+                    document.body.classList.add(theme + "-mode");
+                    document.body.classList.remove((theme === DARK ? LIGHT : DARK) + "-mode");
+                });
+            }
+        })();
+    </script>
+    
+    <!-- Critical CSS to prevent flash -->
+    <style>
+        :root[data-theme="dark"] {
+            --background-color: #202124;
+            --background-color-transparent: rgba(32, 33, 36, 0.6);
+            --second-background-color: #2d2e32;
+            --third-background-color: #34353a;
+            --third-background-color-transparent: rgba(32, 33, 36, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #ffffff;
+            --second-text-color: #eeeeee;
+            --third-text-color: #bebec6;
+            --fourth-text-color: #999999;
+            --default-text-color: #bebec6;
+            --invert-text-color: #373D3F;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(255, 255, 255, 0.08);
+            --shadow-color-2: rgba(255, 255, 255, 0.05);
+        }
+        
+        :root[data-theme="light"] {
+            --background-color: #fff;
+            --background-color-transparent: rgba(255, 255, 255, 0.6);
+            --second-background-color: #f8f8f8;
+            --third-background-color: #f2f2f2;
+            --third-background-color-transparent: rgba(241, 241, 241, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #16171a;
+            --second-text-color: #2f3037;
+            --third-text-color: #5e5e5e;
+            --fourth-text-color: #eeeeee;
+            --default-text-color: #373D3F;
+            --invert-text-color: #bebec6;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(0, 0, 0, 0.08);
+            --shadow-color-2: rgba(0, 0, 0, 0.05);
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+        
+        /* Apply body classes as soon as DOM is ready */
+        :root[data-theme="dark"] body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+    </style>
+    
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://RealknowTech.github.io/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Realknow&#39;s Blog">
 <meta property="og:url" content="https://realknowtech.github.io/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Realknow&#39;s Blog">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://realknowtech.github.io/images/redefine-og.webp">
 <meta property="article:author" content="Realknow">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
+<meta name="twitter:image" content="https://realknowtech.github.io/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#0ABAB5">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Realknow&#39;s Blog - Meet the future.
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
 <link rel="stylesheet" href="/css/style.css">
 
-  
+
     
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
 
-  
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+    
 
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"realknowtech.github.io","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#0ABAB5","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Theme Redefine","subtitle":{"text":[],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.5","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
 <meta name="generator" content="Hexo 7.3.0"></head>
 
+
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+	
+    <style>
+        .home-banner-container {
+            background: none !important;
+        }
+        .home-article-item,
+        .sidebar-links,
+        .sidebar-content,
+        a.page-number,
+        a.extend,
+        .sidebar-links .links:hover,
+        .right-bottom-tools,
+        footer.footer {
+            background-color: var(--background-color-transparent-80) !important;
+        }
+        .right-bottom-tools:hover,
+        a.page-number:hover,
+        a.extend:hover {
+            background-color: var(--primary-color) !important;
+        }
+        .site-info,
+        .home-article-sticky-label {
+            background-color: var(--background-color-transparent-15) !important;
+        }
+        .home-article-sticky-label {
+            backdrop-filter: none !important;
+        }
+    </style>
+    <div class="home-banner-background transition-fade fixed top-0 left-0 w-screen h-screen scale-125 sm:scale-110 box-border will-change-transform bg-cover">
+        <img src="/images/wallhaven-wqery6-light.webp" alt="home-banner-background" class="w-full h-full object-cover dark:hidden">
+        <img src="/images/wallhaven-wqery6-dark.webp" alt="home-banner-background" class="w-full h-full object-cover hidden dark:block">
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+
+
+<div class="home-banner-container flex justify-center items-center transition-fade relative">
+    
+    <div class="content mt-8 flex flex-col justify-center items-center transition-fade-down">
+        <div class="description flex flex-col justify-center items-center w-screen font-medium text-center"
         
-          <a class="main-nav-link" href="/">Home</a>
+        >
+            Theme Redefine
+            
+            
+                <p><i id="subtitle"></i></p>
+            
+        </div>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://RealknowTech.github.io"></form>
-      </div>
     </div>
-  </div>
+    <script>
+        const scrollToMain = ()=> {
+            console.log('scroll');
+            const target = document.querySelector('.main-content-container');
+            target.scrollIntoView({ behavior: 'smooth'});
+        }
+    </script>
+</div>
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar has-home-banner">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                <h1>
+                Realknow&#39;s Blog
+                </h1>
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="active"
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
 </header>
 
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/01/14/%EF%BC%9FCTF-Forensics-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2win7%E5%90%97-Writeup-volatility3-version/" class="article-date">
-  <time class="dt-published" datetime="2026-01-14T08:06:50.000Z" itemprop="datePublished">2026-01-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Forensics/">Forensics</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+			<div class="home-sidebar-container">
+    <div class="sticky-container sticky">
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/01/14/%EF%BC%9FCTF-Forensics-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2win7%E5%90%97-Writeup-volatility3-version/">？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)</a>
-    </h1>
-  
-
-      </header>
+        
+            
+            <div class="sidebar-content" >
+                <div class="avatar flex justify-center">
+    <img src="/images/redefine-avatar.svg">
+</div>
+                <div class="author flex flex-col justify-center my-2.5 mx-0">
+    <div class="name">Realknow</div>
     
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version"><a href="#？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version" class="headerlink" title="？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)"></a>？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)</h3><p>好久没做题了。现在放寒假了，开始了解Forensics方向的知识。感觉还挺有趣的🙂</p>
-<p>与官方writeup不同，本文全部基于volatility3，而不是2，因为我的windows上的默认python版本是python3，所以就使用volatility3了。但是网上的大部分内容都是基于volatility2的，而2和3的命令有较大差异，所以需要费一点时间学习。不过既然是较新的版本，学一学肯定是更有好处的。</p>
-<p>在这里先贴出几个比较全的volatility3命令总结帖：</p>
-<p><a target="_blank" rel="noopener" href="https://tgvhzg.github.io/2025/12/20/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81-volatility3%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">内存取证-volatility3工具的使用 | JiuCheng’s BLOG</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_68012373/article/details/127419463">内存取证-volatility工具的使用 （史上更全教程，更全命令）_volatility内存取证-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/2303_81631620/article/details/146380535">内存取证之windows-Volatility 3_volatility3-CSDN博客</a></p>
-<hr>
-<p>拿到memory.raw，题目告诉我们这是一个内存镜像，所以我们就使用volatility。</p>
-<p>虽说题目告诉我们了系统版本，但是我们也可以使用volatility看看。</p>
-<p><code>python vol.py -f &quot;C:\Users\Xu Zhiheng\Desktop\memory.raw&quot; windows.info</code></p>
-<img src="/2026/01/14/%EF%BC%9FCTF-Forensics-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2win7%E5%90%97-Writeup-volatility3-version/image-20260114162037002.png" class="" title="image-20260114162037002">
+        <div class="label">Lv1</div>
+    
+</div>
+                <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+            </div>
+        
 
-<p>我们可以看到，系统是Win7SP1x64版本的。当然在volatility3中输入命令无需加入系统名称的参数，这是比较便捷的一点。</p>
-<p>然后我们就可以先进行文件扫描，输入命令<code>python vol.py -f &quot;C:\Users\Xu Zhiheng\Desktop\memory.raw&quot; windows.filescan</code>。</p>
-<p>输出了很多文件。官方Writeup建议使用flag或hint来进行筛选，在powershell中这个功能可以使用<code>Select-String</code>来完成：<code>python vol.py -f &quot;C:\Users\Xu Zhiheng\Desktop\memory.raw&quot; windows.filescan | Select-String &quot;flag&quot;</code>。但是，运行的时候却报错了。经过查找，原因是在文件中有一处乱码的存在：</p>
-<img src="/2026/01/14/？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version/屏幕截图 2026-01-13 210729.png"  alt="屏幕截图 2026-01-13 210729" style="zoom: 50%;" />
-
-<p>不过没关系，我们直接把全部的内容复制到Notepad++里查找就行了。我们可以找到一个flag.zip和一个hint.txt。</p>
-<img src="/2026/01/14/？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version/image-20260114165025021.png"  alt="image-20260114165025021" style="zoom: 50%;" />
-
-<img src="/2026/01/14/？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version/image-20260114165116195.png"  alt="image-20260114165116195" style="zoom:50%;" />
-
-<p>把这两个文件dump(转储)下来。使用<code>windows.dumpfiles --physaddr [要提取文件对应的地址] </code>的形式进行转储。注意这里是从物理内存中转储，所以使用<code>physaddr</code>；当然如果从虚拟内存中转储，就要改成<code>--virtaddr</code>参数。（其实我不是很清楚具体的差别💦）</p>
-<p>比如使用<code>python vol.py -f &quot;C:\Users\Xu Zhiheng\Desktop\memory.raw&quot; windows.dumpfiles --physaddr 0x29457910</code>来提取hint.txt。</p>
-<img src="/2026/01/14/%EF%BC%9FCTF-Forensics-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2win7%E5%90%97-Writeup-volatility3-version/image-20260114170603606.png" class="" title="image-20260114170603606">
-
-<p>我们可以在volatility的目录下找到转储的文件并打开：</p>
-<img src="/2026/01/14/%EF%BC%9FCTF-Forensics-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2win7%E5%90%97-Writeup-volatility3-version/image-20260114170727742.png" class="" title="image-20260114170727742">
-
-<p>flag.zip同理（如果打不开可以用010Editor处理一下）。</p>
-<img src="/2026/01/14/？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version/image-20260114170950241.png"  alt="image-20260114170950241" style="zoom: 50%;" />
-
-<p>当然flag.zip是加密的。根据hint.txt的提示，我们应该在画图上寻找线索。</p>
-<p>查阅资料可以得知，我们应该使用Gimp这个软件。<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/536408671">宸极实验室——『CTF』利用 Volatility 对 Windows 画图取证 - 知乎</a></p>
-<p>但是新版本的Gimp在这道题的使用过程中会出现问题。所以必须下载一个2.xx的老版本。<a target="_blank" rel="noopener" href="https://pan.quark.cn/s/5de67e6f6176?spm=a2c6h.12873639.article-detail.4.2b725ed4KsnkOO#/list/share/09bdb83294d0437e886cf8e8cc074777">夸克网盘分享</a>（不得不说夸克网盘真垃圾啊，必须要下载应用才能下载文件，这破玩意还想篡改我的默认浏览器）</p>
-<p>在使用Gimp之前首先要把画图（mspaint.exe）的内存数据转储下来。注意这里和前面不一样，不是转储进程！（在这里卡了好久，可以参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/697332604">【Volatility3】护网杯_Easy_dump - 知乎</a>）</p>
-<p>我们应该使用memdump进行内存数据转储：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhwer/p/15151659.html">volatility3 正式版本转储内存进程的方法 - 暖暖草果 - 博客园</a>，语法是<code>windows.memmap.Memmap --pid [要提取进程对应的pid]</code>。</p>
-<p>使用pslist或者pstree进行进程分析。</p>
-<img src="/2026/01/14/？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version/image-20260114172935903.png"  alt="image-20260114172935903" style="zoom:50%;" />
-
-<p>转储内存数据，命令为<code>python vol.py -f &quot;C:\Users\Xu Zhiheng\Desktop\memory.raw&quot; windows.memmap.Memmap --pid 2624 --dump</code>，然后我们可以在目录下找到转储的文件，将其后缀名改为<code>.data</code>后使用Gimp打开。</p>
-<img src="/2026/01/14/？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version/image-20260114173611489.png"  alt="image-20260114173611489" style="zoom: 50%;" />
-
-<p>将宽高改为题目中提供的数据：2560*1600。然后拖动“位移”条，直到显示清晰为止。</p>
-<img src="/2026/01/14/？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version/image-20260114173916347.png"  alt="image-20260114173916347" style="zoom: 33%;" />
-
-<p>根据密码打开加密的压缩包，flag就在里面了。</p>
-
-      
     </div>
-    <footer class="article-footer">
-      <a data-url="https://realknowtech.github.io/2026/01/14/%EF%BC%9FCTF-Forensics-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2win7%E5%90%97-Writeup-volatility3-version/" data-id="cmlry8zas000aj0vbgfwi4ztt" data-title="？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
+</div>
 
+			
 
-
-  
-    <article id="post-BUUCTF-Reverse-reverse1-Writeup" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/" class="article-date">
-  <time class="dt-published" datetime="2026-01-11T14:32:05.000Z" itemprop="datePublished">2026-01-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Reverse/">Reverse</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+			<div class="main-content">
+				<div class="home-content-container">
+    <ul class="home-article-list">
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/">BUUCTF Reverse reverse1 Writeup</a>
-    </h1>
-  
+            <li class="home-article-item">
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="BUUCTF-Reverse-reverse1-Writeup"><a href="#BUUCTF-Reverse-reverse1-Writeup" class="headerlink" title="BUUCTF Reverse reverse1 Writeup"></a>BUUCTF Reverse reverse1 Writeup</h3><p>此Writeup参考了<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2240112">BUUCTF 刷题笔记——Reverse 1-腾讯云开发者社区-腾讯云</a></p>
-<hr>
-<p>使用IDA打开之后可以先查找主函数or使用<code>Shift+F12</code>查找字符串。（我做的时候是使用后者，但现在看前者更直接。）</p>
-<img src="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111224206270.png" class="" title="image-20260111224206270">
+                
 
-<p>点击带有flag的字符串，但是发现跳转的这里似乎并不是函数的主体。</p>
-<img src="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111224425471.png" class="" title="image-20260111224425471">
+                
 
-<p>没事，可以对这个变量按住X来交叉引用。</p>
-<img src="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111224705306.png" class="" title="image-20260111224705306">
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2026/01/14/%EF%BC%9FCTF-Forensics-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2win7%E5%90%97-Writeup-volatility3-version/">
+                            ？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)
+                        </a>
+                    </h3>
 
-<p>转到交叉引用的地方就对了。然后就按F5生成主函数的伪代码。</p>
-<img src="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111224936756.png"  alt="image-20260111224936756" style="zoom: 50%;" />
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            ？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)好久没做题了。现在放寒假了，开始了解Forensics方向的知识。感觉还挺有趣的🙂
+与官方writeup不同，本文全部基于volatility3，而不是2，因为我的windows上的默认python版本是python3，所以就使用volatility3了。但是网上的大部分内容都是基于...
+                        
+                    </div>
 
-<p>通过伪代码，我们可以猜测，输入的被存储到了Str1中，而正确的是Str1。这里的<code>!strncmp(Str1,Str2,v5)</code>意思是只有当Str1从头到尾（–范围为Strlen(Str2)，即“v5”）都与Str2相等的时候，才返回0（那么非0即为1），也就是<code>Str1==Str2</code>的意思啦！</p>
-<p>所以现在我们只要知道Str2究竟是啥就行了。双击Str2，可以看到Str2的初值是<code>hello_world</code>。db是<code>define byte</code>的意思，此处为字符串定义。</p>
-<img src="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111225836032.png" class="" title="image-20260111225836032">
-
-<p>然而，我们还需要看看Str2是否有被更改过。很明显，我们能在伪代码中找到线索。</p>
-<img src="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111225701404.png"  alt="image-20260111225701404" style="zoom: 67%;" />
-
-<p>这里是一个对Str2的遍历。如果Str2中有含ASCII码为111的字符（即为’o’），则将其替换为48对应的字符（即为’0’）。所以，Str2就变成了<code>hell0_w0rld</code>，这也就是flag了。</p>
-
-      
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Wed Jan 14 2026 16:06:50 GMT+0800">
+                
+                    2026-01-14
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category">
+                <i class="fa-solid fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Forensics/">Forensics</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+        
+        
     </div>
-    <footer class="article-footer">
-      <a data-url="https://realknowtech.github.io/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/" data-id="cmlry8zao0004j0vbbjq3388c" data-title="BUUCTF Reverse reverse1 Writeup" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
 
+    <a href="/2026/01/14/%EF%BC%9FCTF-Forensics-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2win7%E5%90%97-Writeup-volatility3-version/">Read more<span class="seo-reader-text">？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
 
-
-  
-    <article id="post-IDA快捷键使用（自用版）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/01/11/IDA%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%EF%BC%88%E8%87%AA%E7%94%A8%E7%89%88%EF%BC%89/" class="article-date">
-  <time class="dt-published" datetime="2026-01-11T13:17:50.000Z" itemprop="datePublished">2026-01-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Reverse/">Reverse</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+                </div>
+            </li>
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/01/11/IDA%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%EF%BC%88%E8%87%AA%E7%94%A8%E7%89%88%EF%BC%89/">IDA快捷键使用（自用版）</a>
-    </h1>
-  
+            <li class="home-article-item">
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="IDA快捷键使用（自用版）"><a href="#IDA快捷键使用（自用版）" class="headerlink" title="IDA快捷键使用（自用版）"></a>IDA快捷键使用（自用版）</h3><p>更新中…<del>(这篇文章很多是抄学长博客的)</del></p>
-<hr>
-<h5 id="最基本的"><a href="#最基本的" class="headerlink" title="最基本的"></a>最基本的</h5><p><code>空格</code> 切换流程图和反汇编代码</p>
-<p><code>Esc</code> 回退键，能够倒回上一部操作的视图（只有在反汇编窗口才是这个作用，如果是在其他窗口按下Esc，会关闭该窗口）</p>
-<p><code>F5</code> 生成伪代码（好用！）</p>
-<p><code>X</code> 交叉引用（选择某个函数&#x2F;变量）</p>
-<p><code>Shift+F12</code> 显示所有字符串</p>
-<p><code>N</code> 重命名</p>
-<p><code>R</code> 将选中数值转换为可读字符</p>
+                
 
-      
+                
+
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/">
+                            BUUCTF Reverse reverse1 Writeup
+                        </a>
+                    </h3>
+
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            BUUCTF Reverse reverse1 Writeup此Writeup参考了BUUCTF 刷题笔记——Reverse 1-腾讯云开发者社区-腾讯云
+
+使用IDA打开之后可以先查找主函数or使用Shift+F12查找字符串。（我做的时候是使用后者，但现在看前者更直接。）
+
+
+点击带有flag的字符串，但是发现跳转的这里似乎并不是函数的主体。
+
+
+没事，可以对这个变量按住X来交叉引用。
+...
+                        
+                    </div>
+
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Sun Jan 11 2026 22:32:05 GMT+0800">
+                
+                    2026-01-11
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category">
+                <i class="fa-solid fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Reverse/">Reverse</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+        
+        
     </div>
-    <footer class="article-footer">
-      <a data-url="https://realknowtech.github.io/2026/01/11/IDA%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%EF%BC%88%E8%87%AA%E7%94%A8%E7%89%88%EF%BC%89/" data-id="cmlry8zak0002j0vbdb75can4" data-title="IDA快捷键使用（自用版）" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
 
+    <a href="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/">Read more<span class="seo-reader-text">BUUCTF Reverse reverse1 Writeup</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
 
-
-  
-    <article id="post-第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/" class="article-date">
-  <time class="dt-published" datetime="2025-11-27T03:26:19.000Z" itemprop="datePublished">2025-11-27</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Reverse/">Reverse</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+                </div>
+            </li>
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/">第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe</a>
-    </h1>
-  
+            <li class="home-article-item">
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="DontDebugMe"><a href="#DontDebugMe" class="headerlink" title="DontDebugMe"></a>DontDebugMe</h3><p>真·纯萌新教学</p>
-<hr>
-<p>下载得到DontDebugMe.exe，一个让你输flag的程序。</p>
-<p>这类题目的本质：<br><code>用户输入 → 加密变换 → 与存储的加密数据比较 → 判断对错</code></p>
-<p>所以我们的逆向过程就是：</p>
-<p><code>存储的加密数据 → 逆向解密 → 得到原始flag</code></p>
-<p>这种方法其实可以想象成你在编写一个「注册机」，或者简单的说，去破解某个付费软件的密钥。而这个密钥其实是已经在程序里写好了，但是是加密之后的，如果用户输入的密钥经过加密之后与那个加密的相同，那么就说明密钥是正确的。</p>
-<hr>
-<p>好吧，让我们使用ida。</p>
-<p>打开之后先看看main函数。在左侧的function name栏中选定main。</p>
-<img src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127114140855.png"  alt="image-20251127114140855" style="zoom:33%;" />
+                
 
-<p>很明显，这里就是程序的核心部分。当然，也可以使用Shift+F12显示所有的string，通常包含“flag”的地方就是突破口。</p>
-<p>我们继续，使用ida的超模功能——生成伪代码。按F5。</p>
-<img src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127114426544.png"  alt="image-20251127114426544" style="zoom: 33%;" />
+                
 
-<p>这时候这道题的思路已经明晰了。但鉴于我是纯萌新，这里的一切对于我来说都是陌生的。我们可以遵循逆向的原则，从后往前看（其实我做的时候是从前往后的，不过从后往前更符合逻辑）。这里的if可以说是最重要的部分了，就是它来判定flag是否正确的。</p>
-<p>就让我们详细地看一看<code>if ( !memcmp(&amp;unk_450000, Buf2, 0x28u) )</code>。上网查找，得知这里的memcmp在后面的比较值相等的时候返回0；自然，!memcmp就返回1，为真值，就输出“Right flag”了。那<code>&amp;unk_450000, Buf2</code>又是啥呢？我们可以双击这个unk_450000地址，然后就能看到对应的很多data:<br><img src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127115440723.png"  alt="image-20251127115440723" style="zoom:33%;" /></p>
-<p>啊，那这个应该就是加密之后的数据了，我们就是要对它进行操作。此时unk_450000与Buf2相等（Buf2也就是对你输入flag的加密结果），那我们就可以去看看Buf2究竟遭受了什么？</p>
-<img src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127115850685.png"  alt="image-20251127115850685" style="zoom:33%;" />
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2026/01/11/IDA%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%EF%BC%88%E8%87%AA%E7%94%A8%E7%89%88%EF%BC%89/">
+                            IDA快捷键使用（自用版）
+                        </a>
+                    </h3>
 
-<p>很明显，Buf2是与一个叫v5的家伙进行了某种交易。所以现在我们的任务就是先去把v5的内容揪出来。</p>
-<p>v5等于sub_401000()。但是点进这个sub_401000()函数，你就会发现这儿不好办了。太复杂了！</p>
-<img src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127120204058.png"  alt="image-20251127120204058" style="zoom: 25%;" />
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            IDA快捷键使用（自用版）更新中…(这篇文章很多是抄学长博客的)
 
-<p>所以我们就可以采用调试的方法去把这个sub_401000()的值读出来。但是哪有那么一帆风顺？我们可以发现，这个程序有着一个检测是否在调试的东西：</p>
-<img src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127120424776.png"  alt="image-20251127120424776" style="zoom: 33%;" />
+最基本的空格 切换流程图和反汇编代码
+Esc 回退键，能够倒回上一部操作的视图（只有在反汇编窗口才是这个作用，如果是在其他窗口按下Esc，会关闭该窗口）
+F5 生成伪代码（好用！）
+X 交叉引用（选择某个函数&#x2F;变量）
+Shift+F12 显示所有字符串
+N 重命名
+R 将选中数值转换为可读字符
 
-<p>通过追踪这个_loaddll(0)，可以知道一旦被发现处于debug模式下，那么这个程序就会退出。这，也许就是DontDebugMe这个题目的意思罢！</p>
-<p>所以我们面临着新的挑战：反反调试。学长告诉我，这个题目用<code>汇编jz跳转</code>的知识和<code>改zf标志位</code>的方法最快速。</p>
-<p>让我们去看看汇编代码。</p>
-<img src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127120941377.png"  alt="image-20251127120941377" style="zoom:33%;" />
+                        
+                    </div>
 
-<p>我们可以发现，这里有一个IsDebuggerPresent函数。通过上网查阅，我得知其作用为检测到debug时返回1。这个1被放到了eax寄存器中。然后进行了eax与1的cmp，使得ZF（zeroflag）为1。这里补充一点，cmp的本质实际上是对eax和1进行相减，结果为0则将ZF置为1(true)，否则为0。</p>
-<p>那jnz又是什么意思呢？实际上很好理解，就是”jump if not zero”的意思了。那现在我们使用调试器，ZF为1（换句话说，zeroflag为真），说明确实是zero，那么就不会进行“jump”了。</p>
-<p>我们需要进行调试，但是进行调试又会使程序退出。这时就需要用到改zf标志位的方法了。也就是说，在调试过程中在分叉路口之前停一下（打一个断点），做一个“变轨”的操作，让任何情况（本题中，有debug的情况下）都沿着一条可以走下去的路去执行，来改变不得不走一条断头路的局面。</p>
-<p>开始debug。ida在一个一个函数之间的箭头可以让我们直观地看到现在到底是“往哪走”。</p>
-<p>先把断点打在jnz处。按F2就好了。</p>
-<img src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127191507977.png"  alt="image-20251127191507977" style="zoom:33%;" />
-
-<p>运行，随便打点什么都行，因为我们只是需要读取sub_401000()的值。按下enter，你会发现这个红色箭头在闪（截屏截不到，反正就是这里）</p>
-<img src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127191817022.png"  alt="image-20251127191817022" style="zoom:33%;" />
-
-<p>这说明此时jnz并没有jump，所以我们需要改zf标志位。zf的数值在右上角的小框里。</p>
-<img src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127192445344.png"  alt="image-20251127192445344" style="zoom: 33%;" />
-
-<p>双击小框里的zf，将其改为0x0。这时，变成了这个绿色箭头在闪。</p>
-<img src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127192809169.png"  alt="image-20251127192809169" style="zoom: 25%;" />
-
-<p>这样，我们就已经绕过了反汇编这一道门槛！</p>
-<p>然后别急着退出调试，我们的任务是读出sub_401000()的值。从汇编代码中，我们可以看到，sub_401000的值被存储到了eax当中。所以，我们应该在mov eax后面打上断点，然后点击继续运行。(实际上，这里打在mov eax前面也是可以的，ds说是eax已经有了正确的返回值🤔)于是，sub_401000()的值就被我们读出来了。</p>
-<img src="/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127193949648.png" class="" title="image-20251127193949648">
-
-<hr>
-<p>万事俱备，接下来就应该回到伪代码，进行解密脚本的编写了。</p>
-<img src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127194301560.png"  alt="image-20251127194301560" style="zoom:33%;" />
-
-<p>我们可以清楚地看出加密的过程：</p>
-<p>原始值先与v5的高16位进行相加，然后再与v5异或。这里必须注意，第五行中把原始值定为一个16位值（_WORD），但是读出的eax是32位的，所以在<code>Buf2[i] ^= v5</code>这里，buf2_value (16位) 先是被提升为32位，进行32位异或运算，然后再被截断为16位（舍弃高16位）。</p>
-<p>我们应该把这个顺序进行逆向操作。</p>
-<p>首先，我们需要读出unk_450000地址的data。这已经在本文开头讲了，但是怎么把data导出来呢？（其实你也可以手敲😋）</p>
-<p>很简单，只要选中这些数据，然后Edit&gt;&gt;Export Data就可以了。</p>
-<img src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127195952305.png"  alt="image-20251127195952305" style="zoom: 33%;" />
-
-<p>但是但是，这里面的data不仅是8位的，而且还是小端序。</p>
-<p>关于大小端序在这里贴一张图，一目了然：</p>
-<img src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/大端序和小端序.png"  alt="大端序和小端序" style="zoom: 33%;" />
-
-<p>这就需要我们对这些data进行一个处理，例如，把0E9h和0A9h合并为0xA9E9。这里让d老师帮我写了一个脚本：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">little_endian_to_words</span>(<span class="params">hex_string</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    将小端序十六进制字符串转换为大端序的16位字</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    参数:</span></span><br><span class="line"><span class="string">        hex_string: 小端序十六进制字符串</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    返回:</span></span><br><span class="line"><span class="string">        大端序16位字列表</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 清理输入字符串</span></span><br><span class="line">    hex_string = hex_string.replace(<span class="string">&#x27; &#x27;</span>, <span class="string">&#x27;&#x27;</span>).replace(<span class="string">&#x27;,&#x27;</span>, <span class="string">&#x27;&#x27;</span>).replace(<span class="string">&#x27;\n&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 确保字符串长度是偶数</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(hex_string) % <span class="number">2</span> != <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">&quot;十六进制字符串长度必须为偶数&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 每4个字符（2个字节）组成一个16位字</span></span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(hex_string), <span class="number">4</span>):</span><br><span class="line">        <span class="keyword">if</span> i+<span class="number">3</span> &lt; <span class="built_in">len</span>(hex_string):</span><br><span class="line">            <span class="comment"># 小端序：低位字节在前</span></span><br><span class="line">            low_byte_high = hex_string[i]      <span class="comment"># 低位字节的高4位</span></span><br><span class="line">            low_byte_low = hex_string[i+<span class="number">1</span>]     <span class="comment"># 低位字节的低4位</span></span><br><span class="line">            high_byte_high = hex_string[i+<span class="number">2</span>]   <span class="comment"># 高位字节的高4位</span></span><br><span class="line">            high_byte_low = hex_string[i+<span class="number">3</span>]    <span class="comment"># 高位字节的低4位</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 大端序：高位字节在前</span></span><br><span class="line">            big_endian_word = <span class="string">f&quot;0x<span class="subst">&#123;high_byte_high&#125;</span><span class="subst">&#123;high_byte_low&#125;</span><span class="subst">&#123;low_byte_high&#125;</span><span class="subst">&#123;low_byte_low&#125;</span>&quot;</span></span><br><span class="line">            result.append(big_endian_word)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试样例</span></span><br><span class="line">hex_input = <span class="string">&quot;E9A9F8A7F9A220D69AD6C8D999D3CB859BD2C7D59684C9D49AD8CAD79CD5C88597D59E859CD4CA6D&quot;</span></span><br><span class="line">output = little_endian_to_words(hex_input)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;输入:&quot;</span>, hex_input)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;输出:&quot;</span>, <span class="string">&quot;, &quot;</span>.join(output))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输出: 0xA9E9, 0xA7F8, 0xA2F9, 0xD620, 0xD69A, 0xD9C8, 0xD399, 0x85CB, 0xD29B, 0xD5C7, 0x8496, 0xD4C9, 0xD89A, 0xD7CA, 0xD59C, 0x85C8, 0xD597, 0x859E, 0xD49C, 0x6DCA</span><br></pre></td></tr></table></figure>
-
-<p>这样，我们就可以进行进一步的解密了。</p>
-<p>1.根据<strong>异或的可逆性</strong>，我们将加密的data与v5进行异或。</p>
-<p>2.同样的，我们把得到的结果进行舍弃高16位，即&amp;0xFFFF。</p>
-<p>3.然后再减去v5的高16位，即-(v5 &gt;&gt; 16)。</p>
-<p>最后，我们需要转换为ASCII字符输出。因为我们解密出来的每一个数据是16位，即两个字节的，所以我们需要进行一个“先拆再并”的操作：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>):</span><br><span class="line">    ax = enc[i] &amp; <span class="number">0xFF</span></span><br><span class="line">    bx = enc[i] &gt;&gt; <span class="number">8</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">chr</span>(ax) + <span class="built_in">chr</span>(bx), end=<span class="string">&quot;&quot;</span>)</span><br><span class="line">    <span class="comment">#根据小端序，这里先读出高位的ax，再读出低位的bx</span></span><br></pre></td></tr></table></figure>
-
-<p>所以，我们最终的解密脚本就长这样子：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">v5=<span class="number">0x0685EE20</span></span><br><span class="line"></span><br><span class="line">enc=[<span class="number">0xA9E9</span>, <span class="number">0xA7F8</span>, <span class="number">0xA2F9</span>, <span class="number">0xD620</span>, <span class="number">0xD69A</span>, <span class="number">0xD9C8</span>, <span class="number">0xD399</span>, <span class="number">0x85CB</span>, <span class="number">0xD29B</span>, <span class="number">0xD5C7</span>, <span class="number">0x8496</span>, <span class="number">0xD4C9</span>, <span class="number">0xD89A</span>, <span class="number">0xD7CA</span>, <span class="number">0xD59C</span>, <span class="number">0x85C8</span>, <span class="number">0xD597</span>, <span class="number">0x859E</span>, <span class="number">0xD49C</span>, <span class="number">0x6DCA</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>):</span><br><span class="line">    enc[i] ^= v5</span><br><span class="line">    enc[i] &amp;= <span class="number">0xFFFF</span></span><br><span class="line">    enc[i] -= (v5 &gt;&gt; <span class="number">16</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>):</span><br><span class="line">    ax = enc[i] &amp; <span class="number">0xFF</span></span><br><span class="line">    bx = enc[i] &gt;&gt; <span class="number">8</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">chr</span>(ax) + <span class="built_in">chr</span>(bx), end=<span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>运行，就得到了flag。</p>
-<img src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127202609726.png"  alt="image-20251127202609726" style="zoom:25%;" />
-
-<hr>
-<p>虽然这道题是入门题，官方的wp也只有寥寥几行，但是对于我这个新手来说还是有点挑战的，所以我写了这样一篇自认为详尽的wp，从中我也学到了很多😋</p>
-
-      
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Sun Jan 11 2026 21:17:50 GMT+0800">
+                
+                    2026-01-11
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category">
+                <i class="fa-solid fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Reverse/">Reverse</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+        
+        
     </div>
-    <footer class="article-footer">
-      <a data-url="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/" data-id="cmlry8zas0008j0vb4wonbaff" data-title="第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
 
+    <a href="/2026/01/11/IDA%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%EF%BC%88%E8%87%AA%E7%94%A8%E7%89%88%EF%BC%89/">Read more<span class="seo-reader-text">IDA快捷键使用（自用版）</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
 
-
-  
-    <article id="post-第八届浙江省大学生网络与信息安全竞赛-初赛-红头文件之谜" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/11/19/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-%E7%BA%A2%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B9%8B%E8%B0%9C/" class="article-date">
-  <time class="dt-published" datetime="2025-11-18T16:00:00.000Z" itemprop="datePublished">2025-11-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Misc/">Misc</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+                </div>
+            </li>
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/11/19/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-%E7%BA%A2%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B9%8B%E8%B0%9C/">第八届浙江省大学生网络与信息安全竞赛 初赛 红头文件之谜</a>
-    </h1>
-  
+            <li class="home-article-item">
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="红头文件之谜"><a href="#红头文件之谜" class="headerlink" title="红头文件之谜"></a><strong>红头文件之谜</strong></h3><p>一份即将发布的战略规划（红头文件）疑似被境外APT组织窃取，调查人员在对方的服务器上找到了一个被破坏的WPS文档碎片以及零散的系统日志和流量，你能发现其中隐藏的flag吗？</p>
-<hr>
-<p>下载得到一个QAQ.wps，一个system_log.hex和一个1.zip。</p>
-<img src="/2025/11/19/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-%E7%BA%A2%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B9%8B%E8%B0%9C/image-20251119184529554.png" class="" title="image-20251119184529554">
+                
 
-<p>其中1.zip是加密的。看到wps，我蠢蠢地就去虚拟机上下载了wps，以为能够用wps打开。正所谓一步错，步步错，在第一步上翻车，我也只好去看wp了。</p>
-<p>好吧，原来是把这个.wps文件转换为压缩包。众所周知，docx文件的本质就是压缩包，那么，.wps文件应该也是吧。使用010Editor打开，发现是一个缺少了文件头的zip：</p>
-<img src="/2025/11/19/第八届浙江省大学生网络与信息安全竞赛-初赛-红头文件之谜/image-20251119185041916.png"  alt="image-20251119185041916" style="zoom:33%;" />
+                
 
-<p>那还说啥了，直接补上50 4B 03 04就得了。不过我对于在010Editor中插入字节有点疑问。为啥只能一个字节一个字节的插入？是我打开方式不对吗？</p>
-<img src="/2025/11/19/第八届浙江省大学生网络与信息安全竞赛-初赛-红头文件之谜/image-20251119185636940.png"  alt="image-20251119185636940" style="zoom:25%;" />
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/">
+                            第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe
+                        </a>
+                    </h3>
 
-<p>插入，并重命名为.zip。</p>
-<img src="/2025/11/19/第八届浙江省大学生网络与信息安全竞赛-初赛-红头文件之谜/image-20251119185931130.png"  alt="image-20251119185931130" style="zoom: 33%;" />
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            DontDebugMe真·纯萌新教学
 
-<p>打开可以发现里面有一个app.xml，用记事本打开。</p>
-<img src="/2025/11/19/第八届浙江省大学生网络与信息安全竞赛-初赛-红头文件之谜/image-20251119190137717.png"  alt="image-20251119190137717" style="zoom:25%;" />
+下载得到DontDebugMe.exe，一个让你输flag的程序。
+这类题目的本质：用户输入 → 加密变换 → 与存储的加密数据比较 → 判断对错
+所以我们的逆向过程就是：
+存储的加密数据 → 逆向解密 → 得到原始flag
+这种方法其实可以想象成你在编写一个「注册机」，或者简单的说，去破解某个付费软件的密钥。而这个密钥其实是已经在程序里写好了，但是是...
+                        
+                    </div>
 
-<p>在这里又猪脑过载了。看到XOR_key，但是不知道是啥跟啥XOR？？我还以为是Adm1n和2025异或💦</p>
-<p>是原文和XOR_key异或，得到system_log.hex啦！根据<strong>异或的可逆性</strong>，只要再把system_log.hex和XOR_key异或就能得到原文了。</p>
-<p>这里使用cyberchef内置的XOR就可以了。首先拉一个from HEX的recipe，把hex转化为binary，这样才能异或嘛！<em>但是为啥cyberchef显示的是utf-8字符？因为utf-8才可能是“人类的语言”啊，相当于cyberchef自动把转化得到的binary再次转为utf-8显示了。</em></p>
-<p>然后再拉一个XOR的recipe。</p>
-<img src="/2025/11/19/第八届浙江省大学生网络与信息安全竞赛-初赛-红头文件之谜/image-20251119190952985.png"  alt="image-20251119190952985" style="zoom: 25%;" />
-
-<p>这样我们就解密得到了看得懂的system log。从中可以看到一串base64的zip密码，对这个密码使用from base64 recipe即可。</p>
-<img src="/2025/11/19/第八届浙江省大学生网络与信息安全竞赛-初赛-红头文件之谜/image-20251119191149152.png"  alt="image-20251119191149152" style="zoom:25%;" />
-
-<p>得到zip密码：<code>eXywHM0F4YypMhl0</code>。打开1.zip，可以获得一个流量包。乍一看好像里面的流量都差不多。看看详细信息，发现似乎有许多“噪音”–“noise”。于是我就一个一个详细信息地看过去，直到看到了这一条……</p>
-<p>停停停，这样有点麻烦了。可以点击info进行排序，你就会发现突破口就是唯一的那个POST流量。</p>
-<img src="/2025/11/19/第八届浙江省大学生网络与信息安全竞赛-初赛-红头文件之谜/image-20251119192003045.png"  alt="image-20251119192003045" style="zoom:25%;" />
-
-<p>挖藕我看到了什么？是SM4加密哦。既然有了key和iv（初始化向量。但大概不是这里的3，我也不清楚，不需要这个似乎也能解密），那再把这个任务交给cyberchef就行了。</p>
-<p>复制这些内容也是一个小问题。怎么做呢？右键选中左下框里你想复制的内容，选择显示分组字节，然后在弹出的窗口中记得选择显示为UTF-8，这样就方便复制了😋</p>
-<img src="/2025/11/19/第八届浙江省大学生网络与信息安全竞赛-初赛-红头文件之谜/image-20251119192450049.png"  alt="image-20251119192450049" style="zoom:25%;" />
-
-<p>然后就是cyberchef的工作了。但是需要注意，我们的密文X-Blob好像有点特殊？有“&#x2F;””+”，这不是base64编码吗？所以在使用SM4 Decrypted之前，不要忘了先使用from base64哦！</p>
-<img src="/2025/11/19/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-%E7%BA%A2%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B9%8B%E8%B0%9C/image-20251119192812068.png" class="" title="image-20251119192812068">
-
-<p>这样，flag就出来啦！</p>
-
-      
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Thu Nov 27 2025 11:26:19 GMT+0800">
+                
+                    2025-11-27
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category">
+                <i class="fa-solid fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Reverse/">Reverse</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+        
+        
     </div>
-    <footer class="article-footer">
-      <a data-url="https://realknowtech.github.io/2025/11/19/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-%E7%BA%A2%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B9%8B%E8%B0%9C/" data-id="cmlry8zar0007j0vb9gvsc9wh" data-title="第八届浙江省大学生网络与信息安全竞赛 初赛 红头文件之谜" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
 
+    <a href="/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/">Read more<span class="seo-reader-text">第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
 
-
-  
-    <article id="post-firstblog" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/11/18/firstblog/" class="article-date">
-  <time class="dt-published" datetime="2025-11-17T16:00:00.000Z" itemprop="datePublished">2025-11-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Me/">Me</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+                </div>
+            </li>
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/11/18/firstblog/">firstblog</a>
-    </h1>
-  
+            <li class="home-article-item">
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>也是有自己的blog了，在有些艰难的努力下😭。而且还是有些地方没完善好，比如在这个md里面输入第一个汉字的时候有点bug。。</p>
-<p>希望能在这里分享一些学习生活的心得，我看我的学长在这个时候已经发布不少CTF题目的wp了，我得努力了💪</p>
-<p>笔者的联系方式：</p>
-<p>qq：2660933875</p>
-<p>b站：@我就知道鸭&#x2F;RealknowTech</p>
-<p>小红书：@我就知道鸭</p>
+                
 
-      
+                
+
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2025/11/19/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-%E7%BA%A2%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B9%8B%E8%B0%9C/">
+                            第八届浙江省大学生网络与信息安全竞赛 初赛 红头文件之谜
+                        </a>
+                    </h3>
+
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            红头文件之谜一份即将发布的战略规划（红头文件）疑似被境外APT组织窃取，调查人员在对方的服务器上找到了一个被破坏的WPS文档碎片以及零散的系统日志和流量，你能发现其中隐藏的flag吗？
+
+下载得到一个QAQ.wps，一个system_log.hex和一个1.zip。
+
+
+其中1.zip是加密的。看到wps，我蠢蠢地就去虚拟机上下载了wps，以为能够用wps打开。正所谓一步错，步步错，在第一步...
+                        
+                    </div>
+
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Wed Nov 19 2025 00:00:00 GMT+0800">
+                
+                    2025-11-19
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category">
+                <i class="fa-solid fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Misc/">Misc</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+        
+        
     </div>
-    <footer class="article-footer">
-      <a data-url="https://realknowtech.github.io/2025/11/18/firstblog/" data-id="cmlry8zar0006j0vb3pejh3y5" data-title="firstblog" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
 
+    <a href="/2025/11/19/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-%E7%BA%A2%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B9%8B%E8%B0%9C/">Read more<span class="seo-reader-text">第八届浙江省大学生网络与信息安全竞赛 初赛 红头文件之谜</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
 
-
-  
-
-
-</section>
+                </div>
+            </li>
         
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Forensics/">Forensics</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Me/">Me</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Misc/">Misc</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Reverse/">Reverse</a></li></ul>
+            <li class="home-article-item">
+
+                
+
+                
+
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2025/11/18/firstblog/">
+                            firstblog
+                        </a>
+                    </h3>
+
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            也是有自己的blog了，在有些艰难的努力下😭。而且还是有些地方没完善好，比如在这个md里面输入第一个汉字的时候有点bug。。
+希望能在这里分享一些学习生活的心得，我看我的学长在这个时候已经发布不少CTF题目的wp了，我得努力了💪
+笔者的联系方式：
+qq：2660933875
+b站：@我就知道鸭&#x2F;RealknowTech
+小红书：@我就知道鸭
+
+                        
+                    </div>
+
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Tue Nov 18 2025 00:00:00 GMT+0800">
+                
+                    2025-11-18
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category">
+                <i class="fa-solid fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Me/">Me</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+        
+        
     </div>
-  </div>
 
+    <a href="/2025/11/18/firstblog/">Read more<span class="seo-reader-text">firstblog</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
 
-  
-    
+                </div>
+            </li>
+        
+    </ul>
 
+    <div class="home-paginator px-7 py-5">
+        <div class="paginator">
+	<span class="page-number current">1</span>
+</div>
   
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">January 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li></ul>
     </div>
-  </div>
+</div>
 
+			</div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2026/01/14/%EF%BC%9FCTF-Forensics-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2win7%E5%90%97-Writeup-volatility3-version/">？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)</a>
-          </li>
-        
-          <li>
-            <a href="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/">BUUCTF Reverse reverse1 Writeup</a>
-          </li>
-        
-          <li>
-            <a href="/2026/01/11/IDA%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%EF%BC%88%E8%87%AA%E7%94%A8%E7%89%88%EF%BC%89/">IDA快捷键使用（自用版）</a>
-          </li>
-        
-          <li>
-            <a href="/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/">第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe</a>
-          </li>
-        
-          <li>
-            <a href="/2025/11/19/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-%E7%BA%A2%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B9%8B%E8%B0%9C/">第八届浙江省大学生网络与信息安全竞赛 初赛 红头文件之谜</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+			
+		</div>
 
-  
-</aside>
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
         
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2026 Realknow<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2026&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Realknow</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        6 posts in total
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">VISITOR COUNT</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">TOTAL PAGE VIEWS</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.5</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
 </footer>
+		</div>
+	</div>
 
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+
+
     
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
 
 
-<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
 
 
 
   
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
 
 
 
 
-<script src="/js/script.js"></script>
+
+
+
+
+    
+<script src="/js/build/libs/anime.min.js"></script>
 
 
 
 
 
-  </div>
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+	
 </body>
+
 </html>
