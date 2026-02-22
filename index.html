@@ -212,7 +212,119 @@
     
     
     
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 
@@ -449,9 +561,10 @@
                     <div class="home-article-content markdown-body">
                         
                             
-                            编码夯基写这一篇的起源，是在做一道简单的leetcode题目：231. 2 的幂 - 力扣（LeetCode）
+                             编码夯基
+写这一篇的起源，是在做一道简单的leetcode题目：231. 2 的幂 - 力扣（LeetCode）
 我使用的是模拟法：
-123456789101112bool isPowerOfTwo(int n) &#123;    int i = 0;    int current;    while(i &lt;= 31)&#123;        current = pow(2,i); ...
+123456789101112bool isPowerOfTwo(int n) {    int i = 0;    int current;    while(i &lt;= 31){        current = pow(2,i);        i...
                         
                     </div>
 
@@ -507,8 +620,9 @@
                     <div class="home-article-content markdown-body">
                         
                             
-                            ？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)好久没做题了。现在放寒假了，开始了解Forensics方向的知识。感觉还挺有趣的🙂
-与官方writeup不同，本文全部基于volatility3，而不是2，因为我的windows上的默认python版本是python3，所以就使用volatility3了。但是网上的大部分内容都是基于...
+                             ？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)
+好久没做题了。现在放寒假了，开始了解Forensics方向的知识。感觉还挺有趣的🙂
+与官方writeup不同，本文全部基于volatility3，而不是2，因为我的windows上的默认python版本是python3，所以就使用volatility3了。但是网上的大部分内容都是...
                         
                     </div>
 
@@ -564,13 +678,12 @@
                     <div class="home-article-content markdown-body">
                         
                             
-                            BUUCTF Reverse reverse1 Writeup此Writeup参考了BUUCTF 刷题笔记——Reverse 1-腾讯云开发者社区-腾讯云
+                             BUUCTF Reverse reverse1 Writeup
+此Writeup参考了BUUCTF 刷题笔记——Reverse 1-腾讯云开发者社区-腾讯云
 
 使用IDA打开之后可以先查找主函数or使用Shift+F12查找字符串。（我做的时候是使用后者，但现在看前者更直接。）
 
-
 点击带有flag的字符串，但是发现跳转的这里似乎并不是函数的主体。
-
 
 没事，可以对这个变量按住X来交叉引用。
 ...
@@ -629,9 +742,11 @@
                     <div class="home-article-content markdown-body">
                         
                             
-                            IDA快捷键使用（自用版）更新中…(这篇文章很多是抄学长博客的)
+                             IDA快捷键使用（自用版）
+更新中…(这篇文章很多是抄学长博客的)
 
-最基本的空格 切换流程图和反汇编代码
+ 最基本的
+空格 切换流程图和反汇编代码
 Esc 回退键，能够倒回上一部操作的视图（只有在反汇编窗口才是这个作用，如果是在其他窗口按下Esc，会关闭该窗口）
 F5 生成伪代码（好用！）
 X 交叉引用（选择某个函数/变量）
@@ -694,13 +809,15 @@ R 将选中数值转换为可读字符
                     <div class="home-article-content markdown-body">
                         
                             
-                            DontDebugMe真·纯萌新教学
+                             DontDebugMe
+真·纯萌新教学
 
 下载得到DontDebugMe.exe，一个让你输flag的程序。
-这类题目的本质：用户输入 → 加密变换 → 与存储的加密数据比较 → 判断对错
+这类题目的本质：
+用户输入 → 加密变换 → 与存储的加密数据比较 → 判断对错
 所以我们的逆向过程就是：
 存储的加密数据 → 逆向解密 → 得到原始flag
-这种方法其实可以想象成你在编写一个「注册机」，或者简单的说，去破解某个付费软件的密钥。而这个密钥其实是已经在程序里写好了，但是是...
+这种方法其实可以想象成你在编写一个「注册机」，或者简单的说，去破解某个付费软件的密钥。而这个密钥其实是已经在程序里写好了，...
                         
                     </div>
 
@@ -756,12 +873,12 @@ R 将选中数值转换为可读字符
                     <div class="home-article-content markdown-body">
                         
                             
-                            红头文件之谜一份即将发布的战略规划（红头文件）疑似被境外APT组织窃取，调查人员在对方的服务器上找到了一个被破坏的WPS文档碎片以及零散的系统日志和流量，你能发现其中隐藏的flag吗？
+                             红头文件之谜
+一份即将发布的战略规划（红头文件）疑似被境外APT组织窃取，调查人员在对方的服务器上找到了一个被破坏的WPS文档碎片以及零散的系统日志和流量，你能发现其中隐藏的flag吗？
 
 下载得到一个QAQ.wps，一个system_log.hex和一个1.zip。
 
-
-其中1.zip是加密的。看到wps，我蠢蠢地就去虚拟机上下载了wps，以为能够用wps打开。正所谓一步错，步步错，在第一步...
+其中1.zip是加密的。看到wps，我蠢蠢地就去虚拟机上下载了wps，以为能够用wps打开。正所谓一步错，步步错，在第一...
                         
                     </div>
 

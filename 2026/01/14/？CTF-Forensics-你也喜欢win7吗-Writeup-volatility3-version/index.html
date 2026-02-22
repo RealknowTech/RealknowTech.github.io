@@ -416,13 +416,14 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h3 id="？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version"><a href="#？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version" class="headerlink" title="？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)"></a>？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)</h3><p>好久没做题了。现在放寒假了，开始了解Forensics方向的知识。感觉还挺有趣的🙂</p>
+			<h3 id="ctf-forensics-你也喜欢win7吗-writeup-volatility3-version"><a class="markdownIt-Anchor" href="#ctf-forensics-你也喜欢win7吗-writeup-volatility3-version"></a> ？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)</h3>
+<p>好久没做题了。现在放寒假了，开始了解Forensics方向的知识。感觉还挺有趣的🙂</p>
 <p>与官方writeup不同，本文全部基于volatility3，而不是2，因为我的windows上的默认python版本是python3，所以就使用volatility3了。但是网上的大部分内容都是基于volatility2的，而2和3的命令有较大差异，所以需要费一点时间学习。不过既然是较新的版本，学一学肯定是更有好处的。</p>
 <p>在这里先贴出几个比较全的volatility3命令总结帖：</p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://tgvhzg.github.io/2025/12/20/内存取证-volatility3工具的使用/index.html" >内存取证-volatility3工具的使用 | JiuCheng’s BLOG<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://tgvhzg.github.io/2025/12/20/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81-volatility3%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/index.html" >内存取证-volatility3工具的使用 | JiuCheng’s BLOG<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
 <p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/m0_68012373/article/details/127419463" >内存取证-volatility工具的使用 （史上更全教程，更全命令）_volatility内存取证-CSDN博客<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
 <p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/2303_81631620/article/details/146380535" >内存取证之windows-Volatility 3_volatility3-CSDN博客<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
-<hr>
+<hr />
 <p>拿到memory.raw，题目告诉我们这是一个内存镜像，所以我们就使用volatility。</p>
 <p>虽说题目告诉我们了系统版本，但是我们也可以使用volatility看看。</p>
 <p><code>python vol.py -f &quot;C:\Users\Xu Zhiheng\Desktop\memory.raw&quot; windows.info</code></p>
@@ -432,7 +433,6 @@
                      data-src="/2026/01/14/%EF%BC%9FCTF-Forensics-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2win7%E5%90%97-Writeup-volatility3-version/image-20260114162037002.png"
                       class="" title="image-20260114162037002"
                 >
-
 <p>我们可以看到，系统是Win7SP1x64版本的。当然在volatility3中输入命令无需加入系统名称的参数，这是比较便捷的一点。</p>
 <p>然后我们就可以先进行文件扫描，输入命令<code>python vol.py -f &quot;C:\Users\Xu Zhiheng\Desktop\memory.raw&quot; windows.filescan</code>。</p>
 <p>输出了很多文件。官方Writeup建议使用flag或hint来进行筛选，在powershell中这个功能可以使用<code>Select-String</code>来完成：<code>python vol.py -f &quot;C:\Users\Xu Zhiheng\Desktop\memory.raw&quot; windows.filescan | Select-String &quot;flag&quot;</code>。但是，运行的时候却报错了。经过查找，原因是在文件中有一处乱码的存在：</p>
@@ -442,7 +442,6 @@
                      data-src="/2026/01/14/？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version/屏幕截图 2026-01-13 210729.png"
                        alt="屏幕截图 2026-01-13 210729" style="zoom: 50%;" 
                 >
-
 <p>不过没关系，我们直接把全部的内容复制到Notepad++里查找就行了。我们可以找到一个flag.zip和一个hint.txt。</p>
 <img  
                      lazyload
@@ -450,15 +449,13 @@
                      data-src="/2026/01/14/？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version/image-20260114165025021.png"
                        alt="image-20260114165025021" style="zoom: 50%;" 
                 >
-
 <img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="/2026/01/14/？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version/image-20260114165116195.png"
                        alt="image-20260114165116195" style="zoom:50%;" 
                 >
-
-<p>把这两个文件dump(转储)下来。使用<code>windows.dumpfiles --physaddr [要提取文件对应的地址]</code>的形式进行转储。注意这里是从物理内存中转储，所以使用<code>physaddr</code>；当然如果从虚拟内存中转储，就要改成<code>--virtaddr</code>参数。（其实我不是很清楚具体的差别💦）</p>
+<p>把这两个文件dump(转储)下来。使用<code>windows.dumpfiles --physaddr [要提取文件对应的地址] </code>的形式进行转储。注意这里是从物理内存中转储，所以使用<code>physaddr</code>；当然如果从虚拟内存中转储，就要改成<code>--virtaddr</code>参数。（其实我不是很清楚具体的差别💦）</p>
 <p>比如使用<code>python vol.py -f &quot;C:\Users\Xu Zhiheng\Desktop\memory.raw&quot; windows.dumpfiles --physaddr 0x29457910</code>来提取hint.txt。</p>
 <img  
                      lazyload
@@ -466,7 +463,6 @@
                      data-src="/2026/01/14/%EF%BC%9FCTF-Forensics-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2win7%E5%90%97-Writeup-volatility3-version/image-20260114170603606.png"
                       class="" title="image-20260114170603606"
                 >
-
 <p>我们可以在volatility的目录下找到转储的文件并打开：</p>
 <img  
                      lazyload
@@ -474,7 +470,6 @@
                      data-src="/2026/01/14/%EF%BC%9FCTF-Forensics-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2win7%E5%90%97-Writeup-volatility3-version/image-20260114170727742.png"
                       class="" title="image-20260114170727742"
                 >
-
 <p>flag.zip同理（如果打不开可以用010Editor处理一下）。</p>
 <img  
                      lazyload
@@ -482,7 +477,6 @@
                      data-src="/2026/01/14/？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version/image-20260114170950241.png"
                        alt="image-20260114170950241" style="zoom: 50%;" 
                 >
-
 <p>当然flag.zip是加密的。根据hint.txt的提示，我们应该在画图上寻找线索。</p>
 <p>查阅资料可以得知，我们应该使用Gimp这个软件。<a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/536408671" >宸极实验室——『CTF』利用 Volatility 对 Windows 画图取证 - 知乎<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
 <p>但是新版本的Gimp在这道题的使用过程中会出现问题。所以必须下载一个2.xx的老版本。<a class="link"   target="_blank" rel="noopener" href="https://pan.quark.cn/s/5de67e6f6176?spm=a2c6h.12873639.article-detail.4.2b725ed4KsnkOO#/list/share/09bdb83294d0437e886cf8e8cc074777" >夸克网盘分享<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>（不得不说夸克网盘真垃圾啊，必须要下载应用才能下载文件，这破玩意还想篡改我的默认浏览器）</p>
@@ -495,7 +489,6 @@
                      data-src="/2026/01/14/？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version/image-20260114172935903.png"
                        alt="image-20260114172935903" style="zoom:50%;" 
                 >
-
 <p>转储内存数据，命令为<code>python vol.py -f &quot;C:\Users\Xu Zhiheng\Desktop\memory.raw&quot; windows.memmap.Memmap --pid 2624 --dump</code>，然后我们可以在目录下找到转储的文件，将其后缀名改为<code>.data</code>后使用Gimp打开。</p>
 <img  
                      lazyload
@@ -503,7 +496,6 @@
                      data-src="/2026/01/14/？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version/image-20260114173611489.png"
                        alt="image-20260114173611489" style="zoom: 50%;" 
                 >
-
 <p>将宽高改为题目中提供的数据：2560*1600。然后拖动“位移”条，直到显示清晰为止。</p>
 <img  
                      lazyload
@@ -511,7 +503,6 @@
                      data-src="/2026/01/14/？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version/image-20260114173916347.png"
                        alt="image-20260114173916347" style="zoom: 33%;" 
                 >
-
 <p>根据密码打开加密的压缩包，flag就在里面了。</p>
 
 		</div>
@@ -635,7 +626,7 @@
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
 		<div class="page-title">？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)</div>
-		<ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%9FCTF-Forensics-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2win7%E5%90%97-Writeup-volatility3-version"><span class="nav-text">？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)</span></a></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ctf-forensics-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2win7%E5%90%97-writeup-volatility3-version"><span class="nav-text"> ？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)</span></a></li></ol>
 
 	</div>
 </div>

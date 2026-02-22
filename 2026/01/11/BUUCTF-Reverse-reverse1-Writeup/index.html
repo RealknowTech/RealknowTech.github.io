@@ -416,8 +416,9 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h3 id="BUUCTF-Reverse-reverse1-Writeup"><a href="#BUUCTF-Reverse-reverse1-Writeup" class="headerlink" title="BUUCTF Reverse reverse1 Writeup"></a>BUUCTF Reverse reverse1 Writeup</h3><p>此Writeup参考了<a class="link"   target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2240112" >BUUCTF 刷题笔记——Reverse 1-腾讯云开发者社区-腾讯云<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
-<hr>
+			<h3 id="buuctf-reverse-reverse1-writeup"><a class="markdownIt-Anchor" href="#buuctf-reverse-reverse1-writeup"></a> BUUCTF Reverse reverse1 Writeup</h3>
+<p>此Writeup参考了<a class="link"   target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2240112" >BUUCTF 刷题笔记——Reverse 1-腾讯云开发者社区-腾讯云<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<hr />
 <p>使用IDA打开之后可以先查找主函数or使用<code>Shift+F12</code>查找字符串。（我做的时候是使用后者，但现在看前者更直接。）</p>
 <img  
                      lazyload
@@ -425,7 +426,6 @@
                      data-src="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111224206270.png"
                       class="" title="image-20260111224206270"
                 >
-
 <p>点击带有flag的字符串，但是发现跳转的这里似乎并不是函数的主体。</p>
 <img  
                      lazyload
@@ -433,7 +433,6 @@
                      data-src="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111224425471.png"
                       class="" title="image-20260111224425471"
                 >
-
 <p>没事，可以对这个变量按住X来交叉引用。</p>
 <img  
                      lazyload
@@ -441,7 +440,6 @@
                      data-src="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111224705306.png"
                       class="" title="image-20260111224705306"
                 >
-
 <p>转到交叉引用的地方就对了。然后就按F5生成主函数的伪代码。</p>
 <img  
                      lazyload
@@ -449,7 +447,6 @@
                      data-src="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111224936756.png"
                        alt="image-20260111224936756" style="zoom: 50%;" 
                 >
-
 <p>通过伪代码，我们可以猜测，输入的被存储到了Str1中，而正确的是Str1。这里的<code>!strncmp(Str1,Str2,v5)</code>意思是只有当Str1从头到尾（–范围为Strlen(Str2)，即“v5”）都与Str2相等的时候，才返回0（那么非0即为1），也就是<code>Str1==Str2</code>的意思啦！</p>
 <p>所以现在我们只要知道Str2究竟是啥就行了。双击Str2，可以看到Str2的初值是<code>hello_world</code>。db是<code>define byte</code>的意思，此处为字符串定义。</p>
 <img  
@@ -458,7 +455,6 @@
                      data-src="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111225836032.png"
                       class="" title="image-20260111225836032"
                 >
-
 <p>然而，我们还需要看看Str2是否有被更改过。很明显，我们能在伪代码中找到线索。</p>
 <img  
                      lazyload
@@ -466,7 +462,6 @@
                      data-src="/2026/01/11/BUUCTF-Reverse-reverse1-Writeup/image-20260111225701404.png"
                        alt="image-20260111225701404" style="zoom: 67%;" 
                 >
-
 <p>这里是一个对Str2的遍历。如果Str2中有含ASCII码为111的字符（即为’o’），则将其替换为48对应的字符（即为’0’）。所以，Str2就变成了<code>hell0_w0rld</code>，这也就是flag了。</p>
 
 		</div>
@@ -590,7 +585,7 @@
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
 		<div class="page-title">BUUCTF Reverse reverse1 Writeup</div>
-		<ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#BUUCTF-Reverse-reverse1-Writeup"><span class="nav-text">BUUCTF Reverse reverse1 Writeup</span></a></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#buuctf-reverse-reverse1-writeup"><span class="nav-text"> BUUCTF Reverse reverse1 Writeup</span></a></li></ol>
 
 	</div>
 </div>
