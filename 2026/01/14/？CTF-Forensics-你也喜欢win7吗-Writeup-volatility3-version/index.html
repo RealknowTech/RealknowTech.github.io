@@ -419,7 +419,7 @@
 			<h3 id="？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version"><a href="#？CTF-Forensics-你也喜欢win7吗-Writeup-volatility3-version" class="headerlink" title="？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)"></a>？CTF Forensics 你也喜欢win7吗 Writeup (volatility3 version)</h3><p>好久没做题了。现在放寒假了，开始了解Forensics方向的知识。感觉还挺有趣的🙂</p>
 <p>与官方writeup不同，本文全部基于volatility3，而不是2，因为我的windows上的默认python版本是python3，所以就使用volatility3了。但是网上的大部分内容都是基于volatility2的，而2和3的命令有较大差异，所以需要费一点时间学习。不过既然是较新的版本，学一学肯定是更有好处的。</p>
 <p>在这里先贴出几个比较全的volatility3命令总结帖：</p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://tgvhzg.github.io/2025/12/20/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81-volatility3%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/index.html" >内存取证-volatility3工具的使用 | JiuCheng’s BLOG<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://tgvhzg.github.io/2025/12/20/内存取证-volatility3工具的使用/index.html" >内存取证-volatility3工具的使用 | JiuCheng’s BLOG<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
 <p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/m0_68012373/article/details/127419463" >内存取证-volatility工具的使用 （史上更全教程，更全命令）_volatility内存取证-CSDN博客<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
 <p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/2303_81631620/article/details/146380535" >内存取证之windows-Volatility 3_volatility3-CSDN博客<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
 <hr>
@@ -458,7 +458,7 @@
                        alt="image-20260114165116195" style="zoom:50%;" 
                 >
 
-<p>把这两个文件dump(转储)下来。使用<code>windows.dumpfiles --physaddr [要提取文件对应的地址] </code>的形式进行转储。注意这里是从物理内存中转储，所以使用<code>physaddr</code>；当然如果从虚拟内存中转储，就要改成<code>--virtaddr</code>参数。（其实我不是很清楚具体的差别💦）</p>
+<p>把这两个文件dump(转储)下来。使用<code>windows.dumpfiles --physaddr [要提取文件对应的地址]</code>的形式进行转储。注意这里是从物理内存中转储，所以使用<code>physaddr</code>；当然如果从虚拟内存中转储，就要改成<code>--virtaddr</code>参数。（其实我不是很清楚具体的差别💦）</p>
 <p>比如使用<code>python vol.py -f &quot;C:\Users\Xu Zhiheng\Desktop\memory.raw&quot; windows.dumpfiles --physaddr 0x29457910</code>来提取hint.txt。</p>
 <img  
                      lazyload

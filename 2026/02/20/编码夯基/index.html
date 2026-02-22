@@ -434,7 +434,7 @@
 <li><p><strong>致命缺陷</strong>：</p>
 <ol>
 <li><strong>零不唯一</strong>：存在 +0 (<code>0000 0000</code>) 和 -0 (<code>1000 0000</code>)。</li>
-<li><strong>加减法复杂</strong>：计算 1 + (-1) 时，原码运算为 0000 0001 + 1000 0001 &#x3D; 1000 0010（结果为 -2），硬件需要额外的逻辑来处理符号位。</li>
+<li><strong>加减法复杂</strong>：计算 1 + (-1) 时，原码运算为 0000 0001 + 1000 0001 = 1000 0010（结果为 -2），硬件需要额外的逻辑来处理符号位。</li>
 </ol>
 </li>
 </ul>
@@ -468,7 +468,7 @@
 <ol>
 <li><p><strong>零唯一</strong>：只有 <code>0000 0000</code> 表示 0。</p>
 </li>
-<li><p><strong>运算统一</strong>：减法直接转加法。<br>$$<br>1 - 1 \rightarrow 1 + (-1) &#x3D; 0000 0001 + 1111 1111 &#x3D; 0000 0000 (进位被舍弃)。<br>$$</p>
+<li><p><strong>运算统一</strong>：减法直接转加法。<br>$$<br>1 - 1 \rightarrow 1 + (-1) = 0000 0001 + 1111 1111 = 0000 0000 (进位被舍弃)。<br>$$</p>
 </li>
 <li><p><strong>多出一位</strong>：原码中浪费的 -0 空间，在补码中被用来表示最小负数（如 8 位的 <code>-128</code>）。</p>
 </li>
@@ -476,11 +476,11 @@
 </li>
 </ul>
 <hr>
-<h4 id="4-移码-Excess-K-Offset-Binary"><a href="#4-移码-Excess-K-Offset-Binary" class="headerlink" title="4. 移码 (Excess-K &#x2F; Offset Binary)"></a>4. 移码 (Excess-K &#x2F; Offset Binary)</h4><p><strong>核心逻辑</strong>：<br>$$<br>在数值上加上一个固定的偏移量（通常是2^{n-1}）。简单来说，就是将补码的符号位取反。<br>$$</p>
+<h4 id="4-移码-Excess-K-Offset-Binary"><a href="#4-移码-Excess-K-Offset-Binary" class="headerlink" title="4. 移码 (Excess-K / Offset Binary)"></a>4. 移码 (Excess-K / Offset Binary)</h4><p><strong>核心逻辑</strong>：<br>$$<br>在数值上加上一个固定的偏移量（通常是2^{n-1}）。简单来说，就是将补码的符号位取反。<br>$$</p>
 <ul>
 <li><p><strong>应用场景</strong>：主要用于<strong>浮点数（IEEE 754 标准）的阶码（Exponent）</strong>部分。</p>
 </li>
-<li><p>**示例 (8 位)**：</p>
+<li><p><strong>示例 (8 位)</strong>：</p>
 <ul>
 <li>+1 的补码是 <code>0000 0001</code>，移码是 <code>1000 0001</code>。</li>
 <li>0 的移码是 <code>1000 0000</code>。</li>
@@ -498,13 +498,13 @@
 <p>但是，为什么补码等于<strong>反码加一</strong>？🤔</p>
 <p>因为在二进制中：</p>
 <ul>
-<li><p>取反：X 加上它的反码，结果一定是全 1（例如 0011 + 1100 &#x3D; 1111）。</p>
+<li><p>取反：X 加上它的反码，结果一定是全 1（例如 0011 + 1100 = 1111）。</p>
 </li>
 <li><p>在 n 位二进制中，全 1 代表的值是 2^n - 1。</p>
 </li>
-<li><p>所以：<br>$$<br>\text{反码} &#x3D; (2^n - 1) - X。<br>$$</p>
+<li><p>所以：<br>$$<br>\text{反码} = (2^n - 1) - X。<br>$$</p>
 </li>
-<li><p>由此推导：<br>$$<br>\text{反码} + 1 &#x3D; (2^n - 1) - X + 1 &#x3D; \mathbf{2^n - X} &#x3D; \text{补码} 。<br>$$</p>
+<li><p>由此推导：<br>$$<br>\text{反码} + 1 = (2^n - 1) - X + 1 = \mathbf{2^n - X} = \text{补码} 。<br>$$</p>
 </li>
 </ul>
 <hr>
