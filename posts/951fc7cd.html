@@ -140,7 +140,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://realknowtech.github.io/images/redefine-og.webp">
 <meta property="article:published_time" content="2025-11-27T03:26:19.000Z">
-<meta property="article:modified_time" content="2026-02-23T08:48:03.189Z">
+<meta property="article:modified_time" content="2026-05-13T09:41:18.416Z">
 <meta property="article:author" content="Realknow">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://realknowtech.github.io/images/redefine-og.webp">
@@ -372,8 +372,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2026-02-23 16:48:03</span>
-            <span class="mobile">2026-02-23 16:48:03</span>
+            <span class="desktop">2026-05-13 17:41:18</span>
+            <span class="mobile">2026-05-13 17:41:18</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -431,7 +431,7 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/posts/undefined.htmlimage-20251127114140855.png"
+                     data-src="/posts/951fc7cd.htmlimage-20251127114140855.png"
                        alt="image-20251127114140855" style="zoom:33%;" 
                 >
 <p>很明显，这里就是程序的核心部分。当然，也可以使用Shift+F12显示所有的string，通常包含“flag”的地方就是突破口。</p>
@@ -439,7 +439,7 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/posts/undefined.htmlimage-20251127114426544.png"
+                     data-src="/posts/951fc7cd.htmlimage-20251127114426544.png"
                        alt="image-20251127114426544" style="zoom: 33%;" 
                 >
 <p>这时候这道题的思路已经明晰了。但鉴于我是纯萌新，这里的一切对于我来说都是陌生的。我们可以遵循逆向的原则，从后往前看（其实我做的时候是从前往后的，不过从后往前更符合逻辑）。这里的if可以说是最重要的部分了，就是它来判定flag是否正确的。</p>
@@ -447,14 +447,14 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/posts/undefined.htmlimage-20251127115440723.png"
+                     data-src="/posts/951fc7cd.htmlimage-20251127115440723.png"
                        alt="image-20251127115440723" style="zoom:33%;" 
                 ></p>
 <p>啊，那这个应该就是加密之后的数据了，我们就是要对它进行操作。此时unk_450000与Buf2相等（Buf2也就是对你输入flag的加密结果），那我们就可以去看看Buf2究竟遭受了什么？</p>
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/posts/undefined.htmlimage-20251127115850685.png"
+                     data-src="/posts/951fc7cd.htmlimage-20251127115850685.png"
                        alt="image-20251127115850685" style="zoom:33%;" 
                 >
 <p>很明显，Buf2是与一个叫v5的家伙进行了某种交易。所以现在我们的任务就是先去把v5的内容揪出来。</p>
@@ -462,14 +462,14 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/posts/undefined.htmlimage-20251127120204058.png"
+                     data-src="/posts/951fc7cd.htmlimage-20251127120204058.png"
                        alt="image-20251127120204058" style="zoom: 25%;" 
                 >
 <p>所以我们就可以采用调试的方法去把这个sub_401000()的值读出来。但是哪有那么一帆风顺？我们可以发现，这个程序有着一个检测是否在调试的东西：</p>
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/posts/undefined.htmlimage-20251127120424776.png"
+                     data-src="/posts/951fc7cd.htmlimage-20251127120424776.png"
                        alt="image-20251127120424776" style="zoom: 33%;" 
                 >
 <p>通过追踪这个_loaddll(0)，可以知道一旦被发现处于debug模式下，那么这个程序就会退出。这，也许就是DontDebugMe这个题目的意思罢！</p>
@@ -478,7 +478,7 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/posts/undefined.htmlimage-20251127120941377.png"
+                     data-src="/posts/951fc7cd.htmlimage-20251127120941377.png"
                        alt="image-20251127120941377" style="zoom:33%;" 
                 >
 <p>我们可以发现，这里有一个IsDebuggerPresent函数。通过上网查阅，我得知其作用为检测到debug时返回1。这个1被放到了eax寄存器中。然后进行了eax与1的cmp，使得ZF（zeroflag）为1。这里补充一点，cmp的本质实际上是对eax和1进行相减，结果为0则将ZF置为1(true)，否则为0。</p>
@@ -489,28 +489,28 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/posts/undefined.htmlimage-20251127191507977.png"
+                     data-src="/posts/951fc7cd.htmlimage-20251127191507977.png"
                        alt="image-20251127191507977" style="zoom:33%;" 
                 >
 <p>运行，随便打点什么都行，因为我们只是需要读取sub_401000()的值。按下enter，你会发现这个红色箭头在闪（截屏截不到，反正就是这里）</p>
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/posts/undefined.htmlimage-20251127191817022.png"
+                     data-src="/posts/951fc7cd.htmlimage-20251127191817022.png"
                        alt="image-20251127191817022" style="zoom:33%;" 
                 >
 <p>这说明此时jnz并没有jump，所以我们需要改zf标志位。zf的数值在右上角的小框里。</p>
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/posts/undefined.htmlimage-20251127192445344.png"
+                     data-src="/posts/951fc7cd.htmlimage-20251127192445344.png"
                        alt="image-20251127192445344" style="zoom: 33%;" 
                 >
 <p>双击小框里的zf，将其改为0x0。这时，变成了这个绿色箭头在闪。</p>
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/posts/undefined.htmlimage-20251127192809169.png"
+                     data-src="/posts/951fc7cd.htmlimage-20251127192809169.png"
                        alt="image-20251127192809169" style="zoom: 25%;" 
                 >
 <p>这样，我们就已经绕过了反汇编这一道门槛！</p>
@@ -518,7 +518,7 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/posts/undefined/image-20251127193949648.png"
+                     data-src="/posts/951fc7cd/image-20251127193949648.png"
                       class="" title="image-20251127193949648"
                 >
 <hr />
@@ -526,7 +526,7 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/posts/undefined.htmlimage-20251127194301560.png"
+                     data-src="/posts/951fc7cd.htmlimage-20251127194301560.png"
                        alt="image-20251127194301560" style="zoom:33%;" 
                 >
 <p>我们可以清楚地看出加密的过程：</p>
@@ -537,7 +537,7 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/posts/undefined.htmlimage-20251127195952305.png"
+                     data-src="/posts/951fc7cd.htmlimage-20251127195952305.png"
                        alt="image-20251127195952305" style="zoom: 33%;" 
                 >
 <p>但是但是，这里面的data不仅是8位的，而且还是小端序。</p>
@@ -545,7 +545,7 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/posts/undefined.html大端序和小端序.png"
+                     data-src="/posts/951fc7cd.html大端序和小端序.png"
                        alt="大端序和小端序" style="zoom: 33%;" 
                 >
 <p>这就需要我们对这些data进行一个处理，例如，把0E9h和0A9h合并为0xA9E9。这里让d老师帮我写了一个脚本：</p>
@@ -563,7 +563,7 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/posts/undefined.htmlimage-20251127202609726.png"
+                     data-src="/posts/951fc7cd.htmlimage-20251127202609726.png"
                        alt="image-20251127202609726" style="zoom:25%;" 
                 >
 <hr />
@@ -582,7 +582,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2026-02-23 16:48:03
+                    :</strong> 2026-05-13 17:41:18
             </li>
         
         <li>

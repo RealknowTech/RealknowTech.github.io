@@ -140,7 +140,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://realknowtech.github.io/images/redefine-og.webp">
 <meta property="article:published_time" content="2026-02-23T08:47:38.000Z">
-<meta property="article:modified_time" content="2026-02-24T06:52:45.079Z">
+<meta property="article:modified_time" content="2026-05-13T09:41:18.415Z">
 <meta property="article:author" content="Realknow">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://realknowtech.github.io/images/redefine-og.webp">
@@ -484,8 +484,8 @@ mjx-container[display="true"] + br {
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2026-02-24 14:52:45</span>
-            <span class="mobile">2026-02-24 14:52:45</span>
+            <span class="desktop">2026-05-13 17:41:18</span>
+            <span class="mobile">2026-05-13 17:41:18</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -532,11 +532,11 @@ mjx-container[display="true"] + br {
 <p>这道题虽然网上已经有比较多的Writeup了，但是还是想自己写一下，加强一下学习效果🙂</p>
 <hr>
 <p>查看main函数，外层就是输入d/D start，q/Q quit的代码实现：</p>
-<img lazyload="" src="/images/loading.svg" data-src="/posts/undefined.htmlimage-20260223220950651.png" alt="image-20260223220950651" style="zoom: 33%;">
+<img lazyload="" src="/images/loading.svg" data-src="/posts/6eb6ce04.htmlimage-20260223220950651.png" alt="image-20260223220950651" style="zoom: 33%;">
 <p>核心是这个Decry函数：</p>
-<img lazyload="" src="/images/loading.svg" data-src="/posts/undefined.html屏幕截图 2026-02-23 222206.png" alt="屏幕截图 2026-02-23 222206" style="zoom:33%;">
-<img lazyload="" src="/images/loading.svg" data-src="/posts/undefined.html屏幕截图 2026-02-23 222230.png" alt="屏幕截图 2026-02-23 222230" style="zoom:33%;">
-<img lazyload="" src="/images/loading.svg" data-src="/posts/undefined.htmlimage-20260223222450983.png" alt="image-20260223222450983" style="zoom:33%;">
+<img lazyload="" src="/images/loading.svg" data-src="/posts/6eb6ce04.html屏幕截图 2026-02-23 222206.png" alt="屏幕截图 2026-02-23 222206" style="zoom:33%;">
+<img lazyload="" src="/images/loading.svg" data-src="/posts/6eb6ce04.html屏幕截图 2026-02-23 222230.png" alt="屏幕截图 2026-02-23 222230" style="zoom:33%;">
+<img lazyload="" src="/images/loading.svg" data-src="/posts/6eb6ce04.htmlimage-20260223222450983.png" alt="image-20260223222450983" style="zoom:33%;">
 <p><em>注1：先提一嘴<code>__readfsqword</code>：这是一个栈保护机制，你可以在第15行和第69行看到它，如果这玩意改变了，那么return的异或值就不为0，就说明栈溢出了。总结一句话：这是程序的“防盗报警器”，如果只是逆向分析，可以完全忽略它。</em></p>
 <p>关注最后的比对：<code>text</code>与<code>str2</code>。其中<code>text</code>是可以知道的。第22行<code>join</code>函数实现了<code>key3</code>与<code>v9</code>的拼接。其中<code>key3</code>的值是<code>kills</code>；<code>v9</code>的值在第19行，是<code>hadow</code>（选中按R将数值转换为字符，又因为是小端序，故取反）。所以<code>text</code>就是<code>killshadow</code>了。</p>
 <p>我们也可以算出来<code>key</code>的值：<code>key</code>是由<code>key1</code>和<code>src</code>拼接而成。同上，我们可以得到<code>key</code>为<code>ADSFKNDCLS</code>。</p>
@@ -583,7 +583,7 @@ mjx-container[display="true"] + br {
         
             <li>
                 <strong>Updated at
-                    :</strong> 2026-02-24 14:52:45
+                    :</strong> 2026-05-13 17:41:18
             </li>
         
         <li>
