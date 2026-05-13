@@ -123,7 +123,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://RealknowTech.github.io/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-dontdebugme/"/>
+    <link rel="canonical" href="https://RealknowTech.github.io/posts/6eb6ce04.html"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -133,14 +133,14 @@
         
         <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第八届浙江省大学生网络与信息安全竞赛 初赛 DontDebugMe">
-<meta property="og:url" content="https://realknowtech.github.io/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/index.html">
+<meta property="og:title" content="BUUCTF Reverse SimpleRev Writeup">
+<meta property="og:url" content="https://realknowtech.github.io/posts/6eb6ce04.html">
 <meta property="og:site_name" content="Realknow&#39;s Blog">
 <meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://realknowtech.github.io/images/redefine-og.webp">
-<meta property="article:published_time" content="2025-11-27T03:26:19.000Z">
-<meta property="article:modified_time" content="2026-02-23T08:48:03.189Z">
+<meta property="article:published_time" content="2026-02-23T08:47:38.000Z">
+<meta property="article:modified_time" content="2026-02-24T06:52:45.079Z">
 <meta property="article:author" content="Realknow">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://realknowtech.github.io/images/redefine-og.webp">
@@ -155,7 +155,7 @@
     
     <title>
         
-            第八届浙江省大学生网络与信息安全竞赛 初赛 DontDebugMe | Realknow&#39;s Blog
+            BUUCTF Reverse SimpleRev Writeup | Realknow&#39;s Blog
         
     </title>
 
@@ -214,7 +214,119 @@
     
     
     
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 
@@ -344,7 +456,7 @@
 		<div class="article-title relative w-full">
 			
 			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">第八届浙江省大学生网络与信息安全竞赛 初赛 DontDebugMe</h1>
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">BUUCTF Reverse SimpleRev Writeup</h1>
 			</div>
 			
 		</div>
@@ -365,15 +477,15 @@
 					<div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2025-11-27 11:26:19</span>
-        <span class="mobile">2025-11-27 11:26:19</span>
+        <span class="desktop">2026-02-23 16:47:38</span>
+        <span class="mobile">2026-02-23 16:47:38</span>
         <span class="hover-info">Created</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2026-02-23 16:48:03</span>
-            <span class="mobile">2026-02-23 16:48:03</span>
+            <span class="desktop">2026-02-24 14:52:45</span>
+            <span class="mobile">2026-02-24 14:52:45</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -416,158 +528,47 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h3 id="dontdebugme"><a class="markdownIt-Anchor" href="#dontdebugme"></a> DontDebugMe</h3>
-<p>真·纯萌新教学</p>
-<hr />
-<p>下载得到DontDebugMe.exe，一个让你输flag的程序。</p>
-<p>这类题目的本质：<br />
-<code>用户输入 → 加密变换 → 与存储的加密数据比较 → 判断对错</code></p>
-<p>所以我们的逆向过程就是：</p>
-<p><code>存储的加密数据 → 逆向解密 → 得到原始flag</code></p>
-<p>这种方法其实可以想象成你在编写一个「注册机」，或者简单的说，去破解某个付费软件的密钥。而这个密钥其实是已经在程序里写好了，但是是加密之后的，如果用户输入的密钥经过加密之后与那个加密的相同，那么就说明密钥是正确的。</p>
-<hr />
-<p>好吧，让我们使用ida。</p>
-<p>打开之后先看看main函数。在左侧的function name栏中选定main。</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127114140855.png"
-                       alt="image-20251127114140855" style="zoom:33%;" 
-                >
-<p>很明显，这里就是程序的核心部分。当然，也可以使用Shift+F12显示所有的string，通常包含“flag”的地方就是突破口。</p>
-<p>我们继续，使用ida的超模功能——生成伪代码。按F5。</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127114426544.png"
-                       alt="image-20251127114426544" style="zoom: 33%;" 
-                >
-<p>这时候这道题的思路已经明晰了。但鉴于我是纯萌新，这里的一切对于我来说都是陌生的。我们可以遵循逆向的原则，从后往前看（其实我做的时候是从前往后的，不过从后往前更符合逻辑）。这里的if可以说是最重要的部分了，就是它来判定flag是否正确的。</p>
-<p>就让我们详细地看一看<code>if ( !memcmp(&amp;unk_450000, Buf2, 0x28u) )</code>。上网查找，得知这里的memcmp在后面的比较值相等的时候返回0；自然，!memcmp就返回1，为真值，就输出“Right flag”了。那<code>&amp;unk_450000, Buf2</code>又是啥呢？我们可以双击这个unk_450000地址，然后就能看到对应的很多data:<br />
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127115440723.png"
-                       alt="image-20251127115440723" style="zoom:33%;" 
-                ></p>
-<p>啊，那这个应该就是加密之后的数据了，我们就是要对它进行操作。此时unk_450000与Buf2相等（Buf2也就是对你输入flag的加密结果），那我们就可以去看看Buf2究竟遭受了什么？</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127115850685.png"
-                       alt="image-20251127115850685" style="zoom:33%;" 
-                >
-<p>很明显，Buf2是与一个叫v5的家伙进行了某种交易。所以现在我们的任务就是先去把v5的内容揪出来。</p>
-<p>v5等于sub_401000()。但是点进这个sub_401000()函数，你就会发现这儿不好办了。太复杂了！</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127120204058.png"
-                       alt="image-20251127120204058" style="zoom: 25%;" 
-                >
-<p>所以我们就可以采用调试的方法去把这个sub_401000()的值读出来。但是哪有那么一帆风顺？我们可以发现，这个程序有着一个检测是否在调试的东西：</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127120424776.png"
-                       alt="image-20251127120424776" style="zoom: 33%;" 
-                >
-<p>通过追踪这个_loaddll(0)，可以知道一旦被发现处于debug模式下，那么这个程序就会退出。这，也许就是DontDebugMe这个题目的意思罢！</p>
-<p>所以我们面临着新的挑战：反反调试。学长告诉我，这个题目用<code>汇编jz跳转</code>的知识和<code>改zf标志位</code>的方法最快速。</p>
-<p>让我们去看看汇编代码。</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127120941377.png"
-                       alt="image-20251127120941377" style="zoom:33%;" 
-                >
-<p>我们可以发现，这里有一个IsDebuggerPresent函数。通过上网查阅，我得知其作用为检测到debug时返回1。这个1被放到了eax寄存器中。然后进行了eax与1的cmp，使得ZF（zeroflag）为1。这里补充一点，cmp的本质实际上是对eax和1进行相减，结果为0则将ZF置为1(true)，否则为0。</p>
-<p>那jnz又是什么意思呢？实际上很好理解，就是&quot;jump if not zero&quot;的意思了。那现在我们使用调试器，ZF为1（换句话说，zeroflag为真），说明确实是zero，那么就不会进行“jump”了。</p>
-<p>我们需要进行调试，但是进行调试又会使程序退出。这时就需要用到改zf标志位的方法了。也就是说，在调试过程中在分叉路口之前停一下（打一个断点），做一个“变轨”的操作，让任何情况（本题中，有debug的情况下）都沿着一条可以走下去的路去执行，来改变不得不走一条断头路的局面。</p>
-<p>开始debug。ida在一个一个函数之间的箭头可以让我们直观地看到现在到底是“往哪走”。</p>
-<p>先把断点打在jnz处。按F2就好了。</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127191507977.png"
-                       alt="image-20251127191507977" style="zoom:33%;" 
-                >
-<p>运行，随便打点什么都行，因为我们只是需要读取sub_401000()的值。按下enter，你会发现这个红色箭头在闪（截屏截不到，反正就是这里）</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127191817022.png"
-                       alt="image-20251127191817022" style="zoom:33%;" 
-                >
-<p>这说明此时jnz并没有jump，所以我们需要改zf标志位。zf的数值在右上角的小框里。</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127192445344.png"
-                       alt="image-20251127192445344" style="zoom: 33%;" 
-                >
-<p>双击小框里的zf，将其改为0x0。这时，变成了这个绿色箭头在闪。</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127192809169.png"
-                       alt="image-20251127192809169" style="zoom: 25%;" 
-                >
-<p>这样，我们就已经绕过了反汇编这一道门槛！</p>
-<p>然后别急着退出调试，我们的任务是读出sub_401000()的值。从汇编代码中，我们可以看到，sub_401000的值被存储到了eax当中。所以，我们应该在mov eax后面打上断点，然后点击继续运行。(实际上，这里打在mov eax前面也是可以的，ds说是eax已经有了正确的返回值🤔)于是，sub_401000()的值就被我们读出来了。</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/11/27/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-DontDebugMe/image-20251127193949648.png"
-                      class="" title="image-20251127193949648"
-                >
-<hr />
-<p>万事俱备，接下来就应该回到伪代码，进行解密脚本的编写了。</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127194301560.png"
-                       alt="image-20251127194301560" style="zoom:33%;" 
-                >
-<p>我们可以清楚地看出加密的过程：</p>
-<p>原始值先与v5的高16位进行相加，然后再与v5异或。这里必须注意，第五行中把原始值定为一个16位值（_WORD），但是读出的eax是32位的，所以在<code>Buf2[i] ^= v5</code>这里，buf2_value (16位) 先是被提升为32位，进行32位异或运算，然后再被截断为16位（舍弃高16位）。</p>
-<p>我们应该把这个顺序进行逆向操作。</p>
-<p>首先，我们需要读出unk_450000地址的data。这已经在本文开头讲了，但是怎么把data导出来呢？（其实你也可以手敲😋）</p>
-<p>很简单，只要选中这些数据，然后Edit&gt;&gt;Export Data就可以了。</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127195952305.png"
-                       alt="image-20251127195952305" style="zoom: 33%;" 
-                >
-<p>但是但是，这里面的data不仅是8位的，而且还是小端序。</p>
-<p>关于大小端序在这里贴一张图，一目了然：</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/大端序和小端序.png"
-                       alt="大端序和小端序" style="zoom: 33%;" 
-                >
-<p>这就需要我们对这些data进行一个处理，例如，把0E9h和0A9h合并为0xA9E9。这里让d老师帮我写了一个脚本：</p>
-<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">little_endian_to_words</span>(<span class="params">hex_string</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    将小端序十六进制字符串转换为大端序的16位字</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    参数:</span></span><br><span class="line"><span class="string">        hex_string: 小端序十六进制字符串</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    返回:</span></span><br><span class="line"><span class="string">        大端序16位字列表</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 清理输入字符串</span></span><br><span class="line">    hex_string = hex_string.replace(<span class="string">&#x27; &#x27;</span>, <span class="string">&#x27;&#x27;</span>).replace(<span class="string">&#x27;,&#x27;</span>, <span class="string">&#x27;&#x27;</span>).replace(<span class="string">&#x27;\n&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 确保字符串长度是偶数</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(hex_string) % <span class="number">2</span> != <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">&quot;十六进制字符串长度必须为偶数&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 每4个字符（2个字节）组成一个16位字</span></span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(hex_string), <span class="number">4</span>):</span><br><span class="line">        <span class="keyword">if</span> i+<span class="number">3</span> &lt; <span class="built_in">len</span>(hex_string):</span><br><span class="line">            <span class="comment"># 小端序：低位字节在前</span></span><br><span class="line">            low_byte_high = hex_string[i]      <span class="comment"># 低位字节的高4位</span></span><br><span class="line">            low_byte_low = hex_string[i+<span class="number">1</span>]     <span class="comment"># 低位字节的低4位</span></span><br><span class="line">            high_byte_high = hex_string[i+<span class="number">2</span>]   <span class="comment"># 高位字节的高4位</span></span><br><span class="line">            high_byte_low = hex_string[i+<span class="number">3</span>]    <span class="comment"># 高位字节的低4位</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 大端序：高位字节在前</span></span><br><span class="line">            big_endian_word = <span class="string">f&quot;0x<span class="subst">&#123;high_byte_high&#125;</span><span class="subst">&#123;high_byte_low&#125;</span><span class="subst">&#123;low_byte_high&#125;</span><span class="subst">&#123;low_byte_low&#125;</span>&quot;</span></span><br><span class="line">            result.append(big_endian_word)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试样例</span></span><br><span class="line">hex_input = <span class="string">&quot;E9A9F8A7F9A220D69AD6C8D999D3CB859BD2C7D59684C9D49AD8CAD79CD5C88597D59E859CD4CA6D&quot;</span></span><br><span class="line">output = little_endian_to_words(hex_input)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;输入:&quot;</span>, hex_input)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;输出:&quot;</span>, <span class="string">&quot;, &quot;</span>.join(output))</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输出: 0xA9E9, 0xA7F8, 0xA2F9, 0xD620, 0xD69A, 0xD9C8, 0xD399, 0x85CB, 0xD29B, 0xD5C7, 0x8496, 0xD4C9, 0xD89A, 0xD7CA, 0xD59C, 0x85C8, 0xD597, 0x859E, 0xD49C, 0x6DCA</span><br></pre></td></tr></table></figure></div>
-<p>这样，我们就可以进行进一步的解密了。</p>
-<p>1.根据<strong>异或的可逆性</strong>，我们将加密的data与v5进行异或。</p>
-<p>2.同样的，我们把得到的结果进行舍弃高16位，即&amp;0xFFFF。</p>
-<p>3.然后再减去v5的高16位，即-(v5 &gt;&gt; 16)。</p>
-<p>最后，我们需要转换为ASCII字符输出。因为我们解密出来的每一个数据是16位，即两个字节的，所以我们需要进行一个“先拆再并”的操作：</p>
-<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>):</span><br><span class="line">    ax = enc[i] &amp; <span class="number">0xFF</span></span><br><span class="line">    bx = enc[i] &gt;&gt; <span class="number">8</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">chr</span>(ax) + <span class="built_in">chr</span>(bx), end=<span class="string">&quot;&quot;</span>)</span><br><span class="line">    <span class="comment">#根据小端序，这里先读出高位的ax，再读出低位的bx</span></span><br></pre></td></tr></table></figure></div>
-<p>所以，我们最终的解密脚本就长这样子：</p>
-<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">v5=<span class="number">0x0685EE20</span></span><br><span class="line"></span><br><span class="line">enc=[<span class="number">0xA9E9</span>, <span class="number">0xA7F8</span>, <span class="number">0xA2F9</span>, <span class="number">0xD620</span>, <span class="number">0xD69A</span>, <span class="number">0xD9C8</span>, <span class="number">0xD399</span>, <span class="number">0x85CB</span>, <span class="number">0xD29B</span>, <span class="number">0xD5C7</span>, <span class="number">0x8496</span>, <span class="number">0xD4C9</span>, <span class="number">0xD89A</span>, <span class="number">0xD7CA</span>, <span class="number">0xD59C</span>, <span class="number">0x85C8</span>, <span class="number">0xD597</span>, <span class="number">0x859E</span>, <span class="number">0xD49C</span>, <span class="number">0x6DCA</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>):</span><br><span class="line">    enc[i] ^= v5</span><br><span class="line">    enc[i] &amp;= <span class="number">0xFFFF</span></span><br><span class="line">    enc[i] -= (v5 &gt;&gt; <span class="number">16</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>):</span><br><span class="line">    ax = enc[i] &amp; <span class="number">0xFF</span></span><br><span class="line">    bx = enc[i] &gt;&gt; <span class="number">8</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">chr</span>(ax) + <span class="built_in">chr</span>(bx), end=<span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-<p>运行，就得到了flag。</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/image-20251127202609726.png"
-                       alt="image-20251127202609726" style="zoom:25%;" 
-                >
-<hr />
-<p>虽然这道题是入门题，官方的wp也只有寥寥几行，但是对于我这个新手来说还是有点挑战的，所以我写了这样一篇自认为详尽的wp，从中我也学到了很多😋</p>
+			<h3 id="simplerev"><a class="markdownIt-Anchor" href="#simplerev"></a> SimpleRev</h3>
+<p>这道题虽然网上已经有比较多的Writeup了，但是还是想自己写一下，加强一下学习效果🙂</p>
+<hr>
+<p>查看main函数，外层就是输入d/D start，q/Q quit的代码实现：</p>
+<img lazyload="" src="/images/loading.svg" data-src="/posts/undefined.htmlimage-20260223220950651.png" alt="image-20260223220950651" style="zoom: 33%;">
+<p>核心是这个Decry函数：</p>
+<img lazyload="" src="/images/loading.svg" data-src="/posts/undefined.html屏幕截图 2026-02-23 222206.png" alt="屏幕截图 2026-02-23 222206" style="zoom:33%;">
+<img lazyload="" src="/images/loading.svg" data-src="/posts/undefined.html屏幕截图 2026-02-23 222230.png" alt="屏幕截图 2026-02-23 222230" style="zoom:33%;">
+<img lazyload="" src="/images/loading.svg" data-src="/posts/undefined.htmlimage-20260223222450983.png" alt="image-20260223222450983" style="zoom:33%;">
+<p><em>注1：先提一嘴<code>__readfsqword</code>：这是一个栈保护机制，你可以在第15行和第69行看到它，如果这玩意改变了，那么return的异或值就不为0，就说明栈溢出了。总结一句话：这是程序的“防盗报警器”，如果只是逆向分析，可以完全忽略它。</em></p>
+<p>关注最后的比对：<code>text</code>与<code>str2</code>。其中<code>text</code>是可以知道的。第22行<code>join</code>函数实现了<code>key3</code>与<code>v9</code>的拼接。其中<code>key3</code>的值是<code>kills</code>；<code>v9</code>的值在第19行，是<code>hadow</code>（选中按R将数值转换为字符，又因为是小端序，故取反）。所以<code>text</code>就是<code>killshadow</code>了。</p>
+<p>我们也可以算出来<code>key</code>的值：<code>key</code>是由<code>key1</code>和<code>src</code>拼接而成。同上，我们可以得到<code>key</code>为<code>ADSFKNDCLS</code>。</p>
+<p><em>注2：第27行的getchar()是为了“吃掉”上一步输入"d/D"留在缓冲区里的回车符，确保后面的 <code>while</code> 循环能真正等待用户输入 Flag。</em></p>
+<p><em>注3：<code>Str2</code>显示的<code>.bss:00000000002020A0 key db 80h dup(?)</code>是啥意思？</em></p>
+<ul>
+<li><em><strong>.bss</strong>: 这是内存的一个区域，专门存放</em><em>全局变量</em><em>或</em><em>静态变量</em>*。*</li>
+<li><em><strong>db</strong>: 全称 Define Byte，意思是按“字节”为单位定义。</em></li>
+<li><em><strong>80h</strong>: 这是十六进制。转换为十进制是 <strong>128</strong>。</em></li>
+<li><em><strong>dup(?)</strong>: Duplicate 的缩写。意思是“重复”。<code>?</code> 表示初始值未知（通常在程序运行时才会被填入数据）。</em></li>
+</ul>
+<p><em><strong>通俗翻译：</strong> 程序在内存里申请了一块连续的空地，名字叫 <code>key</code>，大小是 <strong>128 个字节</strong>。它就像一个能装 128 个字符的空盒子。</em></p>
+<p>第29~34行，</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt; v5; ++i )</span><br><span class="line">{</span><br><span class="line">  <span class="keyword">if</span> ( key[v3 % v5] &gt; <span class="number">64</span> &amp;&amp; key[v3 % v5] &lt;= <span class="number">90</span> )</span><br><span class="line">    key[i] = key[v3 % v5] + <span class="number">32</span>;</span><br><span class="line">  ++v3;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<p>这里是在将<code>key</code>从大写转为小写。</p>
+<p>关注核心加密部分：</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> ( <span class="number">1</span> )</span><br><span class="line">{</span><br><span class="line">  v1 = getchar();</span><br><span class="line">  <span class="keyword">if</span> ( v1 == <span class="number">10</span> )</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">if</span> ( v1 == <span class="number">32</span> )</span><br><span class="line">  {</span><br><span class="line">    ++v2;</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  {</span><br><span class="line">    <span class="keyword">if</span> ( v1 &lt;= <span class="number">96</span> || v1 &gt; <span class="string">'z'</span> )</span><br><span class="line">    {</span><br><span class="line">      <span class="keyword">if</span> ( v1 &gt; <span class="number">64</span> &amp;&amp; v1 &lt;= <span class="string">'Z'</span> )</span><br><span class="line">      {</span><br><span class="line">        str2[v2] = (v1 - <span class="number">39</span> - key[v3 % v5] + <span class="number">97</span>) % <span class="number">26</span> + <span class="number">97</span>;</span><br><span class="line">        ++v3;</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    {</span><br><span class="line">      str2[v2] = (v1 - <span class="number">39</span> - key[v3 % v5] + <span class="number">97</span>) % <span class="number">26</span> + <span class="number">97</span>;</span><br><span class="line">      ++v3;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span> ( !(v3 % v5) )</span><br><span class="line">      <span class="built_in">putchar</span>(<span class="number">32</span>);</span><br><span class="line">    ++v2;</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<p>读入<code>v1</code>，如果是回车就break；大写和小写字母的加密逻辑一致，都是：</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>s</mi><mi>t</mi><mi>r</mi><mn>2</mn><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo>=</mo><mo stretchy="false">(</mo><mi>v</mi><mn>1</mn><mo>−</mo><mn>39</mn><mo>−</mo><mi>k</mi><mi>e</mi><mi>y</mi><mo stretchy="false">[</mo><mi>v</mi><mn>3</mn><mspace></mspace><mspace width="1em"></mspace><mo stretchy="false">(</mo><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow><mspace width="0.3333333333333333em"></mspace><mn>10</mn><mo stretchy="false">)</mo><mo stretchy="false">]</mo><mo>+</mo><mn>97</mn><mo stretchy="false">)</mo><mspace></mspace><mspace width="1em"></mspace><mo stretchy="false">(</mo><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow><mspace width="0.3333333333333333em"></mspace><mn>26</mn><mo stretchy="false">)</mo><mo>+</mo><mn>97</mn></mrow><annotation encoding="application/x-tex">str2[i] = (v1 - 39 - key[v3 \pmod{10}] + 97) \pmod{26} + 97
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord">2</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">3</span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">3</span><span class="mspace allowbreak"></span><span class="mspace" style="margin-right:1em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">o</span><span class="mord mathrm">d</span></span></span><span class="mspace" style="margin-right:0.3333333333333333em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mclose">)</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">9</span><span class="mord">7</span><span class="mclose">)</span><span class="mspace allowbreak"></span><span class="mspace" style="margin-right:1em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">o</span><span class="mord mathrm">d</span></span></span><span class="mspace" style="margin-right:0.3333333333333333em;"></span><span class="mord">2</span><span class="mord">6</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span><span class="mord">7</span></span></span></span></span></p>
+<p>其中 <code>v1</code> 是原始字符，<code>str2[i]</code> 是目标字符（即 “<code>killshadow</code>” 中的一位）。</p>
+<h4 id="为什么用-v3-v5"><a class="markdownIt-Anchor" href="#为什么用-v3-v5"></a> 为什么用 <code>v3 % v5</code>？</h4>
+<p>这是最困惑的地方。在密码学代码中，<code>%</code>（取模运算）通常用于<strong>循环遍历固定长度的序列</strong>。</p>
+<ul>
+<li><strong>v3</strong>: 是一个计数器，它记录了当前用到了密钥的第几个字符。</li>
+<li><strong>v5</strong>: 是密钥 <code>key</code> 的长度（10）。</li>
+<li><strong><code>key[v3 % v5]</code></strong>: 这意味着如果你的 Flag 长度是 20，而密钥只有 10 位，当 <code>v3</code> 增加到 10 时，<code>10 % 10 = 0</code>，它会<strong>重新回到密钥的第 0 位</strong>开始计算。<em>注4:因为前面遍历过（大写转小写），所以此时v3的初值已是10。</em></li>
+</ul>
+<p>我们可以使用<strong>正向爆破</strong>的手段来得到flag，在这里贴一段网上的脚本：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">'killshadow'</span></span><br><span class="line">key = <span class="string">'adsfkndcls'</span></span><br><span class="line">flag = <span class="string">''</span></span><br><span class="line">v5 = <span class="built_in">len</span>(key)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):   <span class="comment">#输入十次字符，所以循环十次</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">ord</span>(<span class="string">'A'</span>), <span class="built_in">ord</span>(<span class="string">'z'</span>)+<span class="number">1</span>):  <span class="comment">#将所有字母进行尝试，寻找可以使if判断成功的字符</span></span><br><span class="line">        str2 = (j -<span class="number">39</span> - <span class="built_in">ord</span>(key[i % v5]) +<span class="number">97</span>) % <span class="number">26</span> + <span class="number">97</span> <span class="comment">#将原本的加密直接照搬过来，这里需要ord(key[i % v5])是因为python不能直接将字符串转成ascii码</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">chr</span>(str2) == text[i]:  <span class="comment">#将算出来的ascii码chr()转成ascii码与text内容比较</span></span><br><span class="line">            flag += <span class="built_in">chr</span>(j)    </span><br><span class="line">            <span class="keyword">break</span>   <span class="comment">#这里的break作用是如果if判断成功了一次就结束这个内层循环，开始第二个外层循环，如果没有break会输出很多满足条件的别的字符</span></span><br><span class="line"><span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure></div>
+<p>得到flag：<code>KLDQCUDFZO</code>。</p>
+<p>当然其实这里有一个问题，那就是如果小写字母和大写字母都满足的情况下，由于大写字母ascii码靠前，有break跳出循环，导致不会输出小写字母的这种情况。所以说其实flag也有别的可能。</p>
 
 		</div>
 
@@ -575,18 +576,18 @@
 		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
 			<div class="article-copyright-info-container">
     <ul>
-        <li><strong>Title:</strong> 第八届浙江省大学生网络与信息安全竞赛 初赛 DontDebugMe</li>
+        <li><strong>Title:</strong> BUUCTF Reverse SimpleRev Writeup</li>
         <li><strong>Author:</strong> Realknow</li>
         <li><strong>Created at
-                :</strong> 2025-11-27 11:26:19</li>
+                :</strong> 2026-02-23 16:47:38</li>
         
             <li>
                 <strong>Updated at
-                    :</strong> 2026-02-23 16:48:03
+                    :</strong> 2026-02-24 14:52:45
             </li>
         
         <li>
-            <strong>Link:</strong> https://realknowtech.github.io/2025/11/27/第八届浙江省大学生网络与信息安全竞赛-初赛-DontDebugMe/
+            <strong>Link:</strong> https://realknowtech.github.io/posts/6eb6ce04.html
         </li>
         <li>
             <strong>
@@ -612,12 +613,12 @@
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
 			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/2026/01/11/IDA%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8%EF%BC%88%E8%87%AA%E7%94%A8%E7%89%88%EF%BC%89/">
+				<a class="prev" rel="prev" href="/posts/7bf949e6.html">
 					<span class="left arrow-icon flex justify-center items-center">
 						<i class="fa-solid fa-chevron-left"></i>
 					</span>
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item truncate max-w-48">IDA快捷键使用（自用版）</span>
+						<span class="post-nav-title-item truncate max-w-48">CS61A 笔记</span>
 						<span class="post-nav-item">Prev posts</span>
 					</span>
 				</a>
@@ -625,9 +626,9 @@
 			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/2025/11/19/%E7%AC%AC%E5%85%AB%E5%B1%8A%E6%B5%99%E6%B1%9F%E7%9C%81%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B-%E5%88%9D%E8%B5%9B-%E7%BA%A2%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B9%8B%E8%B0%9C/">
+				<a class="next" rel="next" href="/posts/fd0ac6df.html">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item truncate max-w-48">第八届浙江省大学生网络与信息安全竞赛 初赛 红头文件之谜</span>
+						<span class="post-nav-title-item truncate max-w-48">异或夯基</span>
 						<span class="post-nav-item">Next posts</span>
 					</span>
 					<span class="right arrow-icon flex justify-center items-center">
@@ -689,8 +690,8 @@
 		<div class="post-toc-wrap">
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
-		<div class="page-title">第八届浙江省大学生网络与信息安全竞赛 初赛 DontDebugMe</div>
-		<ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#dontdebugme"><span class="nav-text"> DontDebugMe</span></a></li></ol>
+		<div class="page-title">BUUCTF Reverse SimpleRev Writeup</div>
+		<ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#simplerev"><span class="nav-text"> SimpleRev</span></a></li></ol>
 
 	</div>
 </div>
