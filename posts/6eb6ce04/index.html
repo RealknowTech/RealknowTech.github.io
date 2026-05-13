@@ -123,7 +123,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://RealknowTech.github.io/posts/7bf949e6.html"/>
+    <link rel="canonical" href="https://RealknowTech.github.io/posts/6eb6ce04/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -133,14 +133,14 @@
         
         <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CS61A 笔记">
-<meta property="og:url" content="https://realknowtech.github.io/posts/7bf949e6.html">
+<meta property="og:title" content="BUUCTF Reverse SimpleRev Writeup">
+<meta property="og:url" content="https://realknowtech.github.io/posts/6eb6ce04/index.html">
 <meta property="og:site_name" content="Realknow&#39;s Blog">
 <meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://realknowtech.github.io/images/redefine-og.webp">
-<meta property="article:published_time" content="2026-02-27T04:19:16.000Z">
-<meta property="article:modified_time" content="2026-05-13T09:41:18.425Z">
+<meta property="article:published_time" content="2026-02-23T08:47:38.000Z">
+<meta property="article:modified_time" content="2026-05-13T09:41:18.415Z">
 <meta property="article:author" content="Realknow">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://realknowtech.github.io/images/redefine-og.webp">
@@ -155,7 +155,7 @@
     
     <title>
         
-            CS61A 笔记 | Realknow&#39;s Blog
+            BUUCTF Reverse SimpleRev Writeup | Realknow&#39;s Blog
         
     </title>
 
@@ -456,7 +456,7 @@ mjx-container[display="true"] + br {
 		<div class="article-title relative w-full">
 			
 			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">CS61A 笔记</h1>
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">BUUCTF Reverse SimpleRev Writeup</h1>
 			</div>
 			
 		</div>
@@ -477,8 +477,8 @@ mjx-container[display="true"] + br {
 					<div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2026-02-27 12:19:16</span>
-        <span class="mobile">2026-02-27 12:19:16</span>
+        <span class="desktop">2026-02-23 16:47:38</span>
+        <span class="mobile">2026-02-23 16:47:38</span>
         <span class="hover-info">Created</span>
     </span>
     
@@ -499,7 +499,7 @@ mjx-container[display="true"] + br {
                     
                         
                         <li>
-                            <a href="/categories/Courses/">Courses</a>&nbsp;
+                            <a href="/categories/Reverse/">Reverse</a>&nbsp;
                         </li>
                     
                     
@@ -528,32 +528,47 @@ mjx-container[display="true"] + br {
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h3 id="cs61a笔记自用更新中"><a class="markdownIt-Anchor" href="#cs61a笔记自用更新中"></a> CS61A笔记（自用）[更新中]</h3>
-<p><em>本笔记仅记录部分知识点</em></p>
-<h4 id="lecture-2-函数"><a class="markdownIt-Anchor" href="#lecture-2-函数"></a> Lecture 2 函数</h4>
-<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(<span class="built_in">print</span>(<span class="number">1</span>), <span class="built_in">print</span>(<span class="number">2</span>))</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="literal">None</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure></div>
-<p>print这个函数返回值是None，它还有一个副作用就是打印并换行。</p>
-<p>所以先打印1，换行，再打印2，再换行，再打印None None。</p>
-<h4 id="lecture-4-高阶函数"><a class="markdownIt-Anchor" href="#lecture-4-高阶函数"></a> Lecture 4 高阶函数</h4>
-<p><strong>Generalization（泛化）:</strong></p>
-<p>e.g. 图形面积函数的泛化</p>
-<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> pi, sqrt</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">area_square</span>(<span class="params">r</span>):</span><br><span class="line">    <span class="keyword">return</span> r * r</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">area_circle</span>(<span class="params">r</span>):</span><br><span class="line">	<span class="keyword">return</span> r * r * pi</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">area_hexagon</span>(<span class="params">r</span>):</span><br><span class="line">    <span class="keyword">return</span> r * r * <span class="number">3</span> * sqrt(<span class="number">3</span>) / <span class="number">2</span></span><br></pre></td></tr></table></figure></div>
-<p>我们可以看到，三个函数有共性的部分：<code>r*r</code>。所以可以将其泛化为一个新的函数<code>area</code>：</p>
-<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> pi, sqrt</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">area</span>(<span class="params">r, shape_constant</span>):</span><br><span class="line">    <span class="keyword">assert</span> r &gt; <span class="number">0</span>, <span class="string">'A length must be positive'</span> <span class="comment">#assert语句</span></span><br><span class="line">    <span class="keyword">return</span> r * r * shape_constant</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">area_square</span>(<span class="params">r</span>):</span><br><span class="line">    <span class="keyword">return</span> area(r, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">area_circle</span>(<span class="params">r</span>):</span><br><span class="line">    <span class="keyword">return</span> area(r, pi)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">area_hexagon</span>(<span class="params">r</span>):</span><br><span class="line">    <span class="keyword">return</span> area(r, <span class="number">3</span> * sqrt(<span class="number">3</span>) / <span class="number">2</span>)</span><br></pre></td></tr></table></figure></div>
-<p>在python里，函数也可以作为参数而传入其它函数。</p>
-<p>e.g. 自然数求和、立方求和二者也可以进行泛化</p>
-<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sum_naturals</span>(<span class="params">n</span>):</span><br><span class="line">    total, k = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> k &lt;= n:</span><br><span class="line">        total = total + k</span><br><span class="line">        k = k + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> total</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sum_cubes</span>(<span class="params">n</span>):</span><br><span class="line">    total, k = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> k &lt;= n:</span><br><span class="line">        total = total + <span class="built_in">pow</span>(k, <span class="number">3</span>)</span><br><span class="line">        k = k + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> total</span><br></pre></td></tr></table></figure></div>
-<p>将这样共性的求和过程泛化为<code>summation</code>：</p>
-<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">natural</span>(<span class="params">k</span>):</span><br><span class="line">	<span class="keyword">return</span> k</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cube</span>(<span class="params">k</span>):</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">pow</span>(k, <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">summation</span>(<span class="params">n, term</span>):</span><br><span class="line">    total, k = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> k &lt;= n:</span><br><span class="line">        total = total + term(k)</span><br><span class="line">        k = k + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> total</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sum_naturals</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">return</span> summation(n, natural)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sum_cubes</span>(<span class="params">n</span>):</span><br><span class="line">	<span class="keyword">return</span> summation(n, cube)</span><br></pre></td></tr></table></figure></div>
-<p><code>make_adder</code>（这个我一开始也有一点没理解上网查阅得知这叫做“函数柯里化”：<a class="link" target="_blank" rel="noopener" href="https://www.cnblogs.com/LylePark/p/18719709">函数柯里化 - ChoZ - 博客园<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>）:</p>
-<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">make_adder</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">adder</span>(<span class="params">k</span>):</span><br><span class="line">        <span class="keyword">return</span> k + n</span><br><span class="line">    <span class="keyword">return</span> adder</span><br></pre></td></tr></table></figure></div>
-<p>调用该函数：<code>make_adder(1)(2)</code>，1被绑定到n，并返回adder这个函数；后面的2被绑定到k，然后返回k+n这个数值。</p>
-<p>为什么要使用柯里化？</p>
-<ol>
-<li><strong>部分应用</strong>： 柯里化使得我们可以创建一个新函数，将一些参数固定，剩下的参数稍后再提供。这对于重复使用某些参数值的场景非常有用。</li>
-<li><strong>提高可重用性</strong>： 柯里化可以使函数更加灵活和可复用。通过预先提供部分参数，剩下的参数可以通过不同的函数调用来组合。</li>
-<li><strong>函数式编程</strong>： 柯里化是函数式编程中的重要概念，支持构建可组合的函数。它鼓励我们通过组合小的、简洁的函数来构建复杂的逻辑。</li>
-</ol>
+			<h3 id="simplerev"><a class="markdownIt-Anchor" href="#simplerev"></a> SimpleRev</h3>
+<p>这道题虽然网上已经有比较多的Writeup了，但是还是想自己写一下，加强一下学习效果🙂</p>
+<hr>
+<p>查看main函数，外层就是输入d/D start，q/Q quit的代码实现：</p>
+<img lazyload="" src="/images/loading.svg" data-src="/posts/6eb6ce04/image-20260223220950651.png" alt="image-20260223220950651" style="zoom: 33%;">
+<p>核心是这个Decry函数：</p>
+<img lazyload="" src="/images/loading.svg" data-src="/posts/6eb6ce04/屏幕截图 2026-02-23 222206.png" alt="屏幕截图 2026-02-23 222206" style="zoom:33%;">
+<img lazyload="" src="/images/loading.svg" data-src="/posts/6eb6ce04/屏幕截图 2026-02-23 222230.png" alt="屏幕截图 2026-02-23 222230" style="zoom:33%;">
+<img lazyload="" src="/images/loading.svg" data-src="/posts/6eb6ce04/image-20260223222450983.png" alt="image-20260223222450983" style="zoom:33%;">
+<p><em>注1：先提一嘴<code>__readfsqword</code>：这是一个栈保护机制，你可以在第15行和第69行看到它，如果这玩意改变了，那么return的异或值就不为0，就说明栈溢出了。总结一句话：这是程序的“防盗报警器”，如果只是逆向分析，可以完全忽略它。</em></p>
+<p>关注最后的比对：<code>text</code>与<code>str2</code>。其中<code>text</code>是可以知道的。第22行<code>join</code>函数实现了<code>key3</code>与<code>v9</code>的拼接。其中<code>key3</code>的值是<code>kills</code>；<code>v9</code>的值在第19行，是<code>hadow</code>（选中按R将数值转换为字符，又因为是小端序，故取反）。所以<code>text</code>就是<code>killshadow</code>了。</p>
+<p>我们也可以算出来<code>key</code>的值：<code>key</code>是由<code>key1</code>和<code>src</code>拼接而成。同上，我们可以得到<code>key</code>为<code>ADSFKNDCLS</code>。</p>
+<p><em>注2：第27行的getchar()是为了“吃掉”上一步输入"d/D"留在缓冲区里的回车符，确保后面的 <code>while</code> 循环能真正等待用户输入 Flag。</em></p>
+<p><em>注3：<code>Str2</code>显示的<code>.bss:00000000002020A0 key db 80h dup(?)</code>是啥意思？</em></p>
+<ul>
+<li><em><strong>.bss</strong>: 这是内存的一个区域，专门存放</em><em>全局变量</em><em>或</em><em>静态变量</em>*。*</li>
+<li><em><strong>db</strong>: 全称 Define Byte，意思是按“字节”为单位定义。</em></li>
+<li><em><strong>80h</strong>: 这是十六进制。转换为十进制是 <strong>128</strong>。</em></li>
+<li><em><strong>dup(?)</strong>: Duplicate 的缩写。意思是“重复”。<code>?</code> 表示初始值未知（通常在程序运行时才会被填入数据）。</em></li>
+</ul>
+<p><em><strong>通俗翻译：</strong> 程序在内存里申请了一块连续的空地，名字叫 <code>key</code>，大小是 <strong>128 个字节</strong>。它就像一个能装 128 个字符的空盒子。</em></p>
+<p>第29~34行，</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt; v5; ++i )</span><br><span class="line">{</span><br><span class="line">  <span class="keyword">if</span> ( key[v3 % v5] &gt; <span class="number">64</span> &amp;&amp; key[v3 % v5] &lt;= <span class="number">90</span> )</span><br><span class="line">    key[i] = key[v3 % v5] + <span class="number">32</span>;</span><br><span class="line">  ++v3;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<p>这里是在将<code>key</code>从大写转为小写。</p>
+<p>关注核心加密部分：</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> ( <span class="number">1</span> )</span><br><span class="line">{</span><br><span class="line">  v1 = getchar();</span><br><span class="line">  <span class="keyword">if</span> ( v1 == <span class="number">10</span> )</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">if</span> ( v1 == <span class="number">32</span> )</span><br><span class="line">  {</span><br><span class="line">    ++v2;</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  {</span><br><span class="line">    <span class="keyword">if</span> ( v1 &lt;= <span class="number">96</span> || v1 &gt; <span class="string">'z'</span> )</span><br><span class="line">    {</span><br><span class="line">      <span class="keyword">if</span> ( v1 &gt; <span class="number">64</span> &amp;&amp; v1 &lt;= <span class="string">'Z'</span> )</span><br><span class="line">      {</span><br><span class="line">        str2[v2] = (v1 - <span class="number">39</span> - key[v3 % v5] + <span class="number">97</span>) % <span class="number">26</span> + <span class="number">97</span>;</span><br><span class="line">        ++v3;</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    {</span><br><span class="line">      str2[v2] = (v1 - <span class="number">39</span> - key[v3 % v5] + <span class="number">97</span>) % <span class="number">26</span> + <span class="number">97</span>;</span><br><span class="line">      ++v3;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span> ( !(v3 % v5) )</span><br><span class="line">      <span class="built_in">putchar</span>(<span class="number">32</span>);</span><br><span class="line">    ++v2;</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<p>读入<code>v1</code>，如果是回车就break；大写和小写字母的加密逻辑一致，都是：</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>s</mi><mi>t</mi><mi>r</mi><mn>2</mn><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo>=</mo><mo stretchy="false">(</mo><mi>v</mi><mn>1</mn><mo>−</mo><mn>39</mn><mo>−</mo><mi>k</mi><mi>e</mi><mi>y</mi><mo stretchy="false">[</mo><mi>v</mi><mn>3</mn><mspace></mspace><mspace width="1em"></mspace><mo stretchy="false">(</mo><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow><mspace width="0.3333333333333333em"></mspace><mn>10</mn><mo stretchy="false">)</mo><mo stretchy="false">]</mo><mo>+</mo><mn>97</mn><mo stretchy="false">)</mo><mspace></mspace><mspace width="1em"></mspace><mo stretchy="false">(</mo><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow><mspace width="0.3333333333333333em"></mspace><mn>26</mn><mo stretchy="false">)</mo><mo>+</mo><mn>97</mn></mrow><annotation encoding="application/x-tex">str2[i] = (v1 - 39 - key[v3 \pmod{10}] + 97) \pmod{26} + 97
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord">2</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">3</span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">3</span><span class="mspace allowbreak"></span><span class="mspace" style="margin-right:1em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">o</span><span class="mord mathrm">d</span></span></span><span class="mspace" style="margin-right:0.3333333333333333em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mclose">)</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">9</span><span class="mord">7</span><span class="mclose">)</span><span class="mspace allowbreak"></span><span class="mspace" style="margin-right:1em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">o</span><span class="mord mathrm">d</span></span></span><span class="mspace" style="margin-right:0.3333333333333333em;"></span><span class="mord">2</span><span class="mord">6</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span><span class="mord">7</span></span></span></span></span></p>
+<p>其中 <code>v1</code> 是原始字符，<code>str2[i]</code> 是目标字符（即 “<code>killshadow</code>” 中的一位）。</p>
+<h4 id="为什么用-v3-v5"><a class="markdownIt-Anchor" href="#为什么用-v3-v5"></a> 为什么用 <code>v3 % v5</code>？</h4>
+<p>这是最困惑的地方。在密码学代码中，<code>%</code>（取模运算）通常用于<strong>循环遍历固定长度的序列</strong>。</p>
+<ul>
+<li><strong>v3</strong>: 是一个计数器，它记录了当前用到了密钥的第几个字符。</li>
+<li><strong>v5</strong>: 是密钥 <code>key</code> 的长度（10）。</li>
+<li><strong><code>key[v3 % v5]</code></strong>: 这意味着如果你的 Flag 长度是 20，而密钥只有 10 位，当 <code>v3</code> 增加到 10 时，<code>10 % 10 = 0</code>，它会<strong>重新回到密钥的第 0 位</strong>开始计算。<em>注4:因为前面遍历过（大写转小写），所以此时v3的初值已是10。</em></li>
+</ul>
+<p>我们可以使用<strong>正向爆破</strong>的手段来得到flag，在这里贴一段网上的脚本：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">'killshadow'</span></span><br><span class="line">key = <span class="string">'adsfkndcls'</span></span><br><span class="line">flag = <span class="string">''</span></span><br><span class="line">v5 = <span class="built_in">len</span>(key)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):   <span class="comment">#输入十次字符，所以循环十次</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">ord</span>(<span class="string">'A'</span>), <span class="built_in">ord</span>(<span class="string">'z'</span>)+<span class="number">1</span>):  <span class="comment">#将所有字母进行尝试，寻找可以使if判断成功的字符</span></span><br><span class="line">        str2 = (j -<span class="number">39</span> - <span class="built_in">ord</span>(key[i % v5]) +<span class="number">97</span>) % <span class="number">26</span> + <span class="number">97</span> <span class="comment">#将原本的加密直接照搬过来，这里需要ord(key[i % v5])是因为python不能直接将字符串转成ascii码</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">chr</span>(str2) == text[i]:  <span class="comment">#将算出来的ascii码chr()转成ascii码与text内容比较</span></span><br><span class="line">            flag += <span class="built_in">chr</span>(j)    </span><br><span class="line">            <span class="keyword">break</span>   <span class="comment">#这里的break作用是如果if判断成功了一次就结束这个内层循环，开始第二个外层循环，如果没有break会输出很多满足条件的别的字符</span></span><br><span class="line"><span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure></div>
+<p>得到flag：<code>KLDQCUDFZO</code>。</p>
+<p>当然其实这里有一个问题，那就是如果小写字母和大写字母都满足的情况下，由于大写字母ascii码靠前，有break跳出循环，导致不会输出小写字母的这种情况。所以说其实flag也有别的可能。</p>
 
 		</div>
 
@@ -561,10 +576,10 @@ mjx-container[display="true"] + br {
 		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
 			<div class="article-copyright-info-container">
     <ul>
-        <li><strong>Title:</strong> CS61A 笔记</li>
+        <li><strong>Title:</strong> BUUCTF Reverse SimpleRev Writeup</li>
         <li><strong>Author:</strong> Realknow</li>
         <li><strong>Created at
-                :</strong> 2026-02-27 12:19:16</li>
+                :</strong> 2026-02-23 16:47:38</li>
         
             <li>
                 <strong>Updated at
@@ -572,7 +587,7 @@ mjx-container[display="true"] + br {
             </li>
         
         <li>
-            <strong>Link:</strong> https://realknowtech.github.io/posts/7bf949e6.html
+            <strong>Link:</strong> https://realknowtech.github.io/posts/6eb6ce04/
         </li>
         <li>
             <strong>
@@ -598,12 +613,12 @@ mjx-container[display="true"] + br {
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
 			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/posts/3dcddbf0.html">
+				<a class="prev" rel="prev" href="/posts/7bf949e6/">
 					<span class="left arrow-icon flex justify-center items-center">
 						<i class="fa-solid fa-chevron-left"></i>
 					</span>
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item truncate max-w-48">这是你见过的最容易深刻理解的KMP算法讲解</span>
+						<span class="post-nav-title-item truncate max-w-48">CS61A 笔记</span>
 						<span class="post-nav-item">Prev posts</span>
 					</span>
 				</a>
@@ -611,9 +626,9 @@ mjx-container[display="true"] + br {
 			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/posts/6eb6ce04.html">
+				<a class="next" rel="next" href="/posts/fd0ac6df/">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item truncate max-w-48">BUUCTF Reverse SimpleRev Writeup</span>
+						<span class="post-nav-title-item truncate max-w-48">异或夯基</span>
 						<span class="post-nav-item">Next posts</span>
 					</span>
 					<span class="right arrow-icon flex justify-center items-center">
@@ -675,8 +690,8 @@ mjx-container[display="true"] + br {
 		<div class="post-toc-wrap">
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
-		<div class="page-title">CS61A 笔记</div>
-		<ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#cs61a%E7%AC%94%E8%AE%B0%E8%87%AA%E7%94%A8%E6%9B%B4%E6%96%B0%E4%B8%AD"><span class="nav-text"> CS61A笔记（自用）[更新中]</span></a></li></ol>
+		<div class="page-title">BUUCTF Reverse SimpleRev Writeup</div>
+		<ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#simplerev"><span class="nav-text"> SimpleRev</span></a></li></ol>
 
 	</div>
 </div>

@@ -123,7 +123,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://RealknowTech.github.io/posts/fd0ac6df.html"/>
+    <link rel="canonical" href="https://RealknowTech.github.io/posts/7bf949e6/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -133,14 +133,14 @@
         
         <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="异或夯基">
-<meta property="og:url" content="https://realknowtech.github.io/posts/fd0ac6df.html">
+<meta property="og:title" content="CS61A 笔记">
+<meta property="og:url" content="https://realknowtech.github.io/posts/7bf949e6/index.html">
 <meta property="og:site_name" content="Realknow&#39;s Blog">
 <meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://realknowtech.github.io/images/redefine-og.webp">
-<meta property="article:published_time" content="2026-02-23T03:19:24.000Z">
-<meta property="article:modified_time" content="2026-05-13T09:41:18.419Z">
+<meta property="article:published_time" content="2026-02-27T04:19:16.000Z">
+<meta property="article:modified_time" content="2026-05-13T09:41:18.425Z">
 <meta property="article:author" content="Realknow">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://realknowtech.github.io/images/redefine-og.webp">
@@ -155,7 +155,7 @@
     
     <title>
         
-            异或夯基 | Realknow&#39;s Blog
+            CS61A 笔记 | Realknow&#39;s Blog
         
     </title>
 
@@ -456,7 +456,7 @@ mjx-container[display="true"] + br {
 		<div class="article-title relative w-full">
 			
 			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">异或夯基</h1>
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">CS61A 笔记</h1>
 			</div>
 			
 		</div>
@@ -477,8 +477,8 @@ mjx-container[display="true"] + br {
 					<div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2026-02-23 11:19:24</span>
-        <span class="mobile">2026-02-23 11:19:24</span>
+        <span class="desktop">2026-02-27 12:19:16</span>
+        <span class="mobile">2026-02-27 12:19:16</span>
         <span class="hover-info">Created</span>
     </span>
     
@@ -499,7 +499,7 @@ mjx-container[display="true"] + br {
                     
                         
                         <li>
-                            <a href="/categories/Basic/">Basic</a>&nbsp;
+                            <a href="/categories/Courses/">Courses</a>&nbsp;
                         </li>
                     
                     
@@ -528,90 +528,32 @@ mjx-container[display="true"] + br {
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h3 id="异或夯基"><a class="markdownIt-Anchor" href="#异或夯基"></a> 异或夯基</h3>
-<p><em>Create by Gemini</em></p>
-<h4 id="1-异或的基本性质"><a class="markdownIt-Anchor" href="#1-异或的基本性质"></a> 1. 异或的基本性质</h4>
-<p>首先，我们要掌握异或运算的三个数学基石：</p>
+			<h3 id="cs61a笔记自用更新中"><a class="markdownIt-Anchor" href="#cs61a笔记自用更新中"></a> CS61A笔记（自用）[更新中]</h3>
+<p><em>本笔记仅记录部分知识点</em></p>
+<h4 id="lecture-2-函数"><a class="markdownIt-Anchor" href="#lecture-2-函数"></a> Lecture 2 函数</h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(<span class="built_in">print</span>(<span class="number">1</span>), <span class="built_in">print</span>(<span class="number">2</span>))</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="literal">None</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure></div>
+<p>print这个函数返回值是None，它还有一个副作用就是打印并换行。</p>
+<p>所以先打印1，换行，再打印2，再换行，再打印None None。</p>
+<h4 id="lecture-4-高阶函数"><a class="markdownIt-Anchor" href="#lecture-4-高阶函数"></a> Lecture 4 高阶函数</h4>
+<p><strong>Generalization（泛化）:</strong></p>
+<p>e.g. 图形面积函数的泛化</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> pi, sqrt</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">area_square</span>(<span class="params">r</span>):</span><br><span class="line">    <span class="keyword">return</span> r * r</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">area_circle</span>(<span class="params">r</span>):</span><br><span class="line">	<span class="keyword">return</span> r * r * pi</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">area_hexagon</span>(<span class="params">r</span>):</span><br><span class="line">    <span class="keyword">return</span> r * r * <span class="number">3</span> * sqrt(<span class="number">3</span>) / <span class="number">2</span></span><br></pre></td></tr></table></figure></div>
+<p>我们可以看到，三个函数有共性的部分：<code>r*r</code>。所以可以将其泛化为一个新的函数<code>area</code>：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> pi, sqrt</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">area</span>(<span class="params">r, shape_constant</span>):</span><br><span class="line">    <span class="keyword">assert</span> r &gt; <span class="number">0</span>, <span class="string">'A length must be positive'</span> <span class="comment">#assert语句</span></span><br><span class="line">    <span class="keyword">return</span> r * r * shape_constant</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">area_square</span>(<span class="params">r</span>):</span><br><span class="line">    <span class="keyword">return</span> area(r, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">area_circle</span>(<span class="params">r</span>):</span><br><span class="line">    <span class="keyword">return</span> area(r, pi)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">area_hexagon</span>(<span class="params">r</span>):</span><br><span class="line">    <span class="keyword">return</span> area(r, <span class="number">3</span> * sqrt(<span class="number">3</span>) / <span class="number">2</span>)</span><br></pre></td></tr></table></figure></div>
+<p>在python里，函数也可以作为参数而传入其它函数。</p>
+<p>e.g. 自然数求和、立方求和二者也可以进行泛化</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sum_naturals</span>(<span class="params">n</span>):</span><br><span class="line">    total, k = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> k &lt;= n:</span><br><span class="line">        total = total + k</span><br><span class="line">        k = k + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> total</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sum_cubes</span>(<span class="params">n</span>):</span><br><span class="line">    total, k = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> k &lt;= n:</span><br><span class="line">        total = total + <span class="built_in">pow</span>(k, <span class="number">3</span>)</span><br><span class="line">        k = k + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> total</span><br></pre></td></tr></table></figure></div>
+<p>将这样共性的求和过程泛化为<code>summation</code>：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">natural</span>(<span class="params">k</span>):</span><br><span class="line">	<span class="keyword">return</span> k</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cube</span>(<span class="params">k</span>):</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">pow</span>(k, <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">summation</span>(<span class="params">n, term</span>):</span><br><span class="line">    total, k = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> k &lt;= n:</span><br><span class="line">        total = total + term(k)</span><br><span class="line">        k = k + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> total</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sum_naturals</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">return</span> summation(n, natural)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sum_cubes</span>(<span class="params">n</span>):</span><br><span class="line">	<span class="keyword">return</span> summation(n, cube)</span><br></pre></td></tr></table></figure></div>
+<p><code>make_adder</code>（这个我一开始也有一点没理解上网查阅得知这叫做“函数柯里化”：<a class="link" target="_blank" rel="noopener" href="https://www.cnblogs.com/LylePark/p/18719709">函数柯里化 - ChoZ - 博客园<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>）:</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">make_adder</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">adder</span>(<span class="params">k</span>):</span><br><span class="line">        <span class="keyword">return</span> k + n</span><br><span class="line">    <span class="keyword">return</span> adder</span><br></pre></td></tr></table></figure></div>
+<p>调用该函数：<code>make_adder(1)(2)</code>，1被绑定到n，并返回adder这个函数；后面的2被绑定到k，然后返回k+n这个数值。</p>
+<p>为什么要使用柯里化？</p>
 <ol>
-<li>
-<p><strong>归零律：</strong></p>
-<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>A</mi><mo>⊕</mo><mi>A</mi><mo>=</mo><mn>0</mn><mtext>（任何数与自己异或，结果为</mtext><mn>0</mn><mtext>）</mtext></mrow><annotation encoding="application/x-tex">A \oplus A = 0（任何数与自己异或，结果为 0）
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord cjk_fallback">（</span><span class="mord cjk_fallback">任</span><span class="mord cjk_fallback">何</span><span class="mord cjk_fallback">数</span><span class="mord cjk_fallback">与</span><span class="mord cjk_fallback">自</span><span class="mord cjk_fallback">己</span><span class="mord cjk_fallback">异</span><span class="mord cjk_fallback">或</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">结</span><span class="mord cjk_fallback">果</span><span class="mord cjk_fallback">为</span><span class="mord">0</span><span class="mord cjk_fallback">）</span></span></span></span></span></p>
-</li>
-<li>
-<p><strong>单位律：</strong></p>
-<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>A</mi><mo>⊕</mo><mn>0</mn><mo>=</mo><mi>A</mi><mtext>（任何数与</mtext><mn>0</mn><mtext>异或，结果不变）</mtext></mrow><annotation encoding="application/x-tex">A \oplus 0 = A（任何数与 0 异或，结果不变）
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mord cjk_fallback">（</span><span class="mord cjk_fallback">任</span><span class="mord cjk_fallback">何</span><span class="mord cjk_fallback">数</span><span class="mord cjk_fallback">与</span><span class="mord">0</span><span class="mord cjk_fallback">异</span><span class="mord cjk_fallback">或</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">结</span><span class="mord cjk_fallback">果</span><span class="mord cjk_fallback">不</span><span class="mord cjk_fallback">变</span><span class="mord cjk_fallback">）</span></span></span></span></span></p>
-</li>
-<li>
-<p><strong>结合律/交换律：</strong></p>
-<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo stretchy="false">(</mo><mi>A</mi><mo>⊕</mo><mi>B</mi><mo stretchy="false">)</mo><mo>⊕</mo><mi>C</mi><mo>=</mo><mi>A</mi><mo>⊕</mo><mo stretchy="false">(</mo><mi>B</mi><mo>⊕</mo><mi>C</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(A \oplus B) \oplus C = A \oplus (B \oplus C)
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span></span></p>
-</li>
+<li><strong>部分应用</strong>： 柯里化使得我们可以创建一个新函数，将一些参数固定，剩下的参数稍后再提供。这对于重复使用某些参数值的场景非常有用。</li>
+<li><strong>提高可重用性</strong>： 柯里化可以使函数更加灵活和可复用。通过预先提供部分参数，剩下的参数可以通过不同的函数调用来组合。</li>
+<li><strong>函数式编程</strong>： 柯里化是函数式编程中的重要概念，支持构建可组合的函数。它鼓励我们通过组合小的、简洁的函数来构建复杂的逻辑。</li>
 </ol>
-<hr>
-<h4 id="2-形式化推导"><a class="markdownIt-Anchor" href="#2-形式化推导"></a> 2. 形式化推导</h4>
-<p>假设我们有一个原始数据（明文）M 和一个密钥 K，加密过程是：</p>
-<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>C</mi><mo>=</mo><mi>M</mi><mo>⊕</mo><mi>K</mi><mtext>（这里</mtext><mi>C</mi><mtext>是加密后的密文）</mtext></mrow><annotation encoding="application/x-tex">C = M \oplus K（这里 C 是加密后的密文）
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mord cjk_fallback">（</span><span class="mord cjk_fallback">这</span><span class="mord cjk_fallback">里</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord cjk_fallback">是</span><span class="mord cjk_fallback">加</span><span class="mord cjk_fallback">密</span><span class="mord cjk_fallback">后</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">密</span><span class="mord cjk_fallback">文</span><span class="mord cjk_fallback">）</span></span></span></span></span></p>
-<p><strong>我们要证明：</strong> 已知 C 和 K，可以还原出 M。</p>
-<p><strong>推导步骤：</strong></p>
-<ol>
-<li>
-<p>在等式两边同时异或 K：</p>
-<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>C</mi><mo>⊕</mo><mi>K</mi><mo>=</mo><mo stretchy="false">(</mo><mi>M</mi><mo>⊕</mo><mi>K</mi><mo stretchy="false">)</mo><mo>⊕</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">C \oplus K = (M \oplus K) \oplus K
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span></span></p>
-</li>
-<li>
-<p>利用<strong>结合律</strong>，改变右边的运算顺序：</p>
-<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>C</mi><mo>⊕</mo><mi>K</mi><mo>=</mo><mi>M</mi><mo>⊕</mo><mo stretchy="false">(</mo><mi>K</mi><mo>⊕</mo><mi>K</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">C \oplus K = M \oplus (K \oplus K)
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mclose">)</span></span></span></span></span></p>
-</li>
-<li>
-<p>利用<strong>归零律</strong>，</p>
-<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>K</mi><mo>⊕</mo><mi>K</mi><mtext>等于</mtext><mn>0</mn><mo>:</mo></mrow><annotation encoding="application/x-tex">K \oplus K 等于 0:
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mord cjk_fallback">等</span><span class="mord cjk_fallback">于</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span></span></span></p>
-<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>C</mi><mo>⊕</mo><mi>K</mi><mo>=</mo><mi>M</mi><mo>⊕</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">C \oplus K = M \oplus 0
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></span></p>
-</li>
-<li>
-<p>利用<strong>单位律</strong>，</p>
-<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>M</mi><mo>⊕</mo><mn>0</mn><mtext>等于</mtext><mi>M</mi><mo>:</mo></mrow><annotation encoding="application/x-tex">M \oplus 0 等于 M:
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord cjk_fallback">等</span><span class="mord cjk_fallback">于</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span></span></span></p>
-<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>C</mi><mo>⊕</mo><mi>K</mi><mo>=</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">C \oplus K = M
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span></span></p>
-</li>
-</ol>
-<p><strong>结论：</strong> 只需要把密文和密钥再异或一次，就得到了明文。</p>
-<hr>
-<h4 id="3-为什么这在逆向题目中很重要"><a class="markdownIt-Anchor" href="#3-为什么这在逆向题目中很重要"></a> 3. 为什么这在逆向题目中很重要？</h4>
-<p>回到你给出的那道题，它的加密逻辑是：</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">__b[i] = __b[i] ^ __b[i-1]</span><br></pre></td></tr></table></figure></div>
-<p>这意味着当前的字符是靠“前一个字符”来加密的。在解密时：</p>
-<ol>
-<li>
-<p>已知 <code>__b[0]</code> 是确定的（因为它没参与循环）。</p>
-</li>
-<li>
-<p>第二个字符 <code>__b[1]</code> 的加密公式是：</p>
-<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>N</mi><mi>e</mi><mi>w</mi><mi mathvariant="normal">_</mi><mi>b</mi><mo stretchy="false">[</mo><mn>1</mn><mo stretchy="false">]</mo><mo>=</mo><mi>O</mi><mi>l</mi><mi>d</mi><mi mathvariant="normal">_</mi><mi>b</mi><mo stretchy="false">[</mo><mn>1</mn><mo stretchy="false">]</mo><mo>⊕</mo><mi>N</mi><mi>e</mi><mi>w</mi><mi mathvariant="normal">_</mi><mi>b</mi><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">New\_b[1] = Old\_b[1] \oplus New\_b[0]
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.06em;vertical-align:-0.31em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord mathnormal">b</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.06em;vertical-align:-0.31em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">d</span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord mathnormal">b</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.06em;vertical-align:-0.31em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord mathnormal">b</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span></span></span></span></span></p>
-</li>
-<li>
-<p>根据我们上面的推导，逆运算就是：</p>
-<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>O</mi><mi>l</mi><mi>d</mi><mi mathvariant="normal">_</mi><mi>b</mi><mo stretchy="false">[</mo><mn>1</mn><mo stretchy="false">]</mo><mo>=</mo><mi>N</mi><mi>e</mi><mi>w</mi><mi mathvariant="normal">_</mi><mi>b</mi><mo stretchy="false">[</mo><mn>1</mn><mo stretchy="false">]</mo><mo>⊕</mo><mi>N</mi><mi>e</mi><mi>w</mi><mi mathvariant="normal">_</mi><mi>b</mi><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">Old\_b[1] = New\_b[1] \oplus New\_b[0]
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.06em;vertical-align:-0.31em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">d</span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord mathnormal">b</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.06em;vertical-align:-0.31em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord mathnormal">b</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.06em;vertical-align:-0.31em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mord mathnormal">b</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span></span></span></span></span></p>
-</li>
-</ol>
-<p>这就解释了为什么你只需要用 <code>global</code> 数组中<strong>相邻的两个字节</strong>互相异或，就能把 Flag 还原出来。</p>
-<hr>
-<h4 id="4-直观理解"><a class="markdownIt-Anchor" href="#4-直观理解"></a> 4. 直观理解</h4>
-<p>你可以把异或看作是一个“翻转开关”。</p>
-<ul>
-<li>如果 K 的某一位是 1，它就会把 M 对应的那一位翻转（0变1，1变0）。</li>
-<li>如果你再用 K 异或一次（再按一次开关），那一层翻转就又变回去了。</li>
-</ul>
-<p><strong>这就是为什么它是“自反”的。</strong></p>
 
 		</div>
 
@@ -619,10 +561,10 @@ mjx-container[display="true"] + br {
 		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
 			<div class="article-copyright-info-container">
     <ul>
-        <li><strong>Title:</strong> 异或夯基</li>
+        <li><strong>Title:</strong> CS61A 笔记</li>
         <li><strong>Author:</strong> Realknow</li>
         <li><strong>Created at
-                :</strong> 2026-02-23 11:19:24</li>
+                :</strong> 2026-02-27 12:19:16</li>
         
             <li>
                 <strong>Updated at
@@ -630,7 +572,7 @@ mjx-container[display="true"] + br {
             </li>
         
         <li>
-            <strong>Link:</strong> https://realknowtech.github.io/posts/fd0ac6df.html
+            <strong>Link:</strong> https://realknowtech.github.io/posts/7bf949e6/
         </li>
         <li>
             <strong>
@@ -656,12 +598,12 @@ mjx-container[display="true"] + br {
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
 			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/posts/6eb6ce04.html">
+				<a class="prev" rel="prev" href="/posts/3dcddbf0/">
 					<span class="left arrow-icon flex justify-center items-center">
 						<i class="fa-solid fa-chevron-left"></i>
 					</span>
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item truncate max-w-48">BUUCTF Reverse SimpleRev Writeup</span>
+						<span class="post-nav-title-item truncate max-w-48">这是你见过的最容易深刻理解的KMP算法讲解</span>
 						<span class="post-nav-item">Prev posts</span>
 					</span>
 				</a>
@@ -669,9 +611,9 @@ mjx-container[display="true"] + br {
 			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/posts/a0e5b632.html">
+				<a class="next" rel="next" href="/posts/6eb6ce04/">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item truncate max-w-48">编码夯基</span>
+						<span class="post-nav-title-item truncate max-w-48">BUUCTF Reverse SimpleRev Writeup</span>
 						<span class="post-nav-item">Next posts</span>
 					</span>
 					<span class="right arrow-icon flex justify-center items-center">
@@ -733,8 +675,8 @@ mjx-container[display="true"] + br {
 		<div class="post-toc-wrap">
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
-		<div class="page-title">异或夯基</div>
-		<ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E6%88%96%E5%A4%AF%E5%9F%BA"><span class="nav-text"> 异或夯基</span></a></li></ol>
+		<div class="page-title">CS61A 笔记</div>
+		<ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#cs61a%E7%AC%94%E8%AE%B0%E8%87%AA%E7%94%A8%E6%9B%B4%E6%96%B0%E4%B8%AD"><span class="nav-text"> CS61A笔记（自用）[更新中]</span></a></li></ol>
 
 	</div>
 </div>
