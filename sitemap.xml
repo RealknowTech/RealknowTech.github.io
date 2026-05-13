@@ -146,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://realknowtech.github.io/categories/Misc/</loc>
+    <loc>https://realknowtech.github.io/categories/Courses/</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -167,6 +167,13 @@
   </url>
   
   <url>
+    <loc>https://realknowtech.github.io/categories/Misc/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://realknowtech.github.io/categories/Data-Structure/</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -175,13 +182,6 @@
   
   <url>
     <loc>https://realknowtech.github.io/categories/Forensics/</loc>
-    <lastmod>2026-05-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://realknowtech.github.io/categories/Courses/</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
